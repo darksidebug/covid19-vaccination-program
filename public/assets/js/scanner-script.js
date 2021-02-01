@@ -7,9 +7,6 @@ async function submitForm(event){
             });
 
     let result = await response.json();
-
-    // console.log(result);
-
     if(result.status === 'success'){
         Swal.fire({
             icon: 'success',
@@ -17,8 +14,10 @@ async function submitForm(event){
             timer: 2000,
             timerProgressBar : true,
         }).then((resp) =>{
-            if (resp.dismiss === Swal.DismissReason.timer) {
-                window.location.replace('/');
+            if (resp.dismiss === Swal.DismissReason.timer || resp.isConfirmed) {
+                let _tokens = document.getElementsByName('_token')[0].value;
+                let formData = {_token : _tokens, qr_code : result.data[0].qr_code, first_name : result.data[0].first_name, middle_name : result.data[0].middle_name, last_name : result.data[0].last_name, contact_number : result.data[0].contact_number};
+                SendPost(formData);
               }
         })
     }else if(result.status === 'invalid'){
@@ -33,6 +32,28 @@ async function submitForm(event){
         });
     }
 
+}
+
+async function SendPost(data){
+    let token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    let response = await fetch('/postdata',{
+        method: 'post',
+        headers : {
+            "Content-Type": "application/json",
+                    "Accept": "application/json, text-plain, */*",
+                    "X-Requested-With": "XMLHttpRequest",
+                    "X-CSRF-TOKEN": token
+        },
+        credentials: "same-origin",
+        body : JSON.stringify(data)
+    });
+    // console.log(response);
+
+    // let resp = await response.json();
+
+    // console.log(resp);
+    window.location.href = '/';
 }
 
 let qrForm = document.getElementById('qrForm');

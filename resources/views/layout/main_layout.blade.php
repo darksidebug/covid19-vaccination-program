@@ -31,7 +31,7 @@
     <!-- script functions and animations -->
     <script src="{{ asset('assets/js/custom_script.js') }}"></script>
 
-    
+
 
 </head>
 <body>
@@ -84,7 +84,7 @@
                             </div>
                         </div>
 
-                        
+
                         <!-- fullname -->
                         <div id="owl-demo" class="owl-carousel">
                             <div class="item p-2">
@@ -95,15 +95,15 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 mt-0 pr-md-1">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" value="{{$firstname}}">
                                         <small class="text-sm-footer pl-1">First Name</small>
                                     </div>
                                     <div class="col-md-3 px-md-1">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" value="{{$middlename}}">
                                         <small class="text-sm-footer pl-1">Middle Name</small>
                                     </div>
                                     <div class="col-md-3 px-md-1">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" value="{{$lastname}}">
                                         <small class="text-sm-footer pl-1">Last Name</small>
                                     </div>
                                     <div class="col-md-2 pl-md-1">
@@ -111,7 +111,7 @@
                                         <small class="text-sm-footer pl-1">Suffix</small>
                                     </div>
                                 </div>
-                                
+
                                 <!-- address -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
@@ -171,7 +171,7 @@
                                         <small class="text-sm-footer pl-1">Date</small>
                                     </div>
                                 </div>
-                                
+
                                 <!-- sex -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
@@ -188,7 +188,7 @@
                                         <small class="text-gender pl-1">Female</small>
                                     </div>
                                 </div>
-                                
+
                                 <!-- civil status -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
@@ -229,7 +229,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Cat ID -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
@@ -247,7 +247,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                
+
                                 <!-- cat ID num -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
@@ -356,7 +356,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Name of Employer -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
@@ -380,7 +380,7 @@
                                         <input type="text" class="form-control">
                                     </div>
                                 </div>
-                                
+
                                 <!-- Address or employer -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
