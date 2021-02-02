@@ -16,6 +16,8 @@ async function submitForm(event){
         }).then((resp) =>{
             if (resp.dismiss === Swal.DismissReason.timer || resp.isConfirmed) {
                 let _tokens = document.getElementsByName('_token')[0].value;
+                let objAddress = checkAddress(result.data[0].address);
+                // console.log(objAddress);
                 let formData = {_token : _tokens, qr_code : result.data[0].qr_code, first_name : result.data[0].first_name, middle_name : result.data[0].middle_name, last_name : result.data[0].last_name, contact_number : result.data[0].contact_number};
                 SendPost(formData);
               }
@@ -32,6 +34,31 @@ async function submitForm(event){
         });
     }
 
+}
+
+function checkAddress(address){
+    let objectData = {province: "", municipality: "", barangay: ""};
+    let newAddress = address.toLowerCase();
+    for(var province in r){
+        if(newAddress.match(province.toLowerCase())){
+            objectData.province = province;
+        }
+    }
+
+    for(let municipality in r[objectData.province]){
+        if(newAddress.match(municipality.toLowerCase())){
+            objectData.municipality = municipality;
+        }
+    }
+
+    for(let barangay in r[objectData.province[objectData.municipality]]){
+        if(newAddress.match(barangay.toLowerCase())){
+            objectData.province = barangay;
+        }
+    }
+
+
+    return objectData;
 }
 
 async function SendPost(data){

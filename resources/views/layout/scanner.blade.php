@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="{{ asset('assets/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/custom_style.css') }}">
 
+    <script src="{{ asset('assets/js/jquery.js') }}"></script>
     <script src="{{asset('assets/js/scanner-script.js')}}" defer></script>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.14.0/sweetalert2.min.js">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.14.0/sweetalert2.all.min.js" defer></script> -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" defer></script>
+    <script src="{{ asset('assets/js/r8.js') }} "></script>
 </head>
 
 <body>

@@ -4,8 +4,8 @@
 
     <div class="container">
         <div class="text-center mt-5">
-            <h2 class="text-center text-heading-scan pt-3">Vaccination Program</h2>
-
+            <h3 class="text-center text-heading-scan text-heading pt-3">COVID-19 Vaccination Program</h3>
+            <p class="text-center text-small-heading">Province of Southern Leyte</p>
             <center>
                 <a id="btn-scan-qr">
                     <img src="https://uploads.sitepoint.com/wp-content/uploads/2017/07/1499401426qr_icon.svg">

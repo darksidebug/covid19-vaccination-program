@@ -31,11 +31,13 @@
     <!-- script functions and animations -->
     <script src="{{ asset('assets/js/custom_script.js') }}"></script>
 
+    <script src="{{ asset('assets/js/r8.js') }} "></script>
+    <!-- <script src="https://trace.southernleyte.org.ph/assets/js/r8.js"></script> -->
 
 
 </head>
 <body>
-    
+
     @yield('registration_content')
     @yield('scan_content')
 
