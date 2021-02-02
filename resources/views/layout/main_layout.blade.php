@@ -31,12 +31,12 @@
     <!-- script functions and animations -->
     <script src="{{ asset('assets/js/custom_script.js') }}"></script>
 
-    
+
 
 </head>
 <body>
     
-
+    @yield('registration_content')
     
 
 </body>
