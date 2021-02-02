@@ -31,6 +31,8 @@
     <!-- script functions and animations -->
     <script src="{{ asset('assets/js/custom_script.js') }}"></script>
 
+    <script src="{{ asset('assets/js/r8.js') }} "></script>
+    <!-- <script src="https://trace.southernleyte.org.ph/assets/js/r8.js"></script> -->
 
 
 </head>
@@ -95,19 +97,19 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4 mt-0 pr-md-1">
-                                        <input type="text" class="form-control" value="{{$firstname}}">
+                                        <input type="text" name="firstname" class="form-control" value="{{$firstname}}">
                                         <small class="text-sm-footer pl-1">First Name</small>
                                     </div>
                                     <div class="col-md-3 px-md-1">
-                                        <input type="text" class="form-control" value="{{$middlename}}">
+                                        <input type="text" name="middlename" class="form-control" value="{{$middlename}}">
                                         <small class="text-sm-footer pl-1">Middle Name</small>
                                     </div>
                                     <div class="col-md-3 px-md-1">
-                                        <input type="text" class="form-control" value="{{$lastname}}">
+                                        <input type="text" name="lastname" class="form-control" value="{{$lastname}}">
                                         <small class="text-sm-footer pl-1">Last Name</small>
                                     </div>
                                     <div class="col-md-2 pl-md-1">
-                                    <input type="text" class="form-control">
+                                    <input type="text" name="suffix" class="form-control">
                                         <small class="text-sm-footer pl-1">Suffix</small>
                                     </div>
                                 </div>
@@ -120,23 +122,26 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 mt-0">
-                                        <input type="text" class="form-control">
+                                        <select name="Province" id="Province">
+                                            <option value="" selected> </option>
+                                        </select>
                                         <small class="text-sm-footer pl-1">Province</small>
                                     </div>
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-6 pr-md-1">
-                                        <input type="text" class="form-control">
+                                        <select type="text" name="Municipality" id="Municipality" class="form-control"></select>
+                                        <option value=""> </option>
                                         <small class="text-sm-footer pl-1">Municipal/City</small>
                                     </div>
                                     <div class="col-md-6 pl-md-1">
-                                        <input type="text" class="form-control">
+                                        <select type="text" class="form-control" name="Barangay" id="Barangay"></select>
                                         <small class="text-sm-footer pl-1">Barangay</small>
                                     </div>
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-12">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="OtherDetails" id="OtherDetails">
                                         <small class="text-sm-footer pl-1">Sitio/Purok/Street</small>
                                     </div>
                                 </div>
@@ -148,7 +153,7 @@
                                 </div>
                                 <div class="row mb-3 mb-5">
                                     <div class="col-md-6 mt-0">
-                                        <input type="text" class="form-control" placeholder="09xxxxxxxxx">
+                                        <input type="text" name="contact" value="{{$contact}}" class="form-control" placeholder="09xxxxxxxxx">
                                     </div>
                                 </div>
 
@@ -167,7 +172,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="date" class="form-control">
+                                        <input name="birth_date" type="date" class="form-control">
                                         <small class="text-sm-footer pl-1">Date</small>
                                     </div>
                                 </div>
@@ -180,11 +185,11 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3 mt-0">
-                                        <input type="radio" class="ml-3">
+                                        <input type="radio" value="Male" name="gender" class="ml-3">
                                         <small class="text-gender pl-1">Male</small>
                                     </div>
                                     <div class="col-md-3 mt-0">
-                                        <input type="radio" class="ml-3">
+                                        <input type="radio" value="Female" name="gender" class="ml-3">
                                         <small class="text-gender pl-1">Female</small>
                                     </div>
                                 </div>
@@ -199,11 +204,11 @@
                                     <div class="col-md-6">
                                         <select name="civil_status" class="form-control">
                                             <option value="">Please Select</option>
-                                            <option value="">Single</option>
-                                            <option value="">Married</option>
-                                            <option value="">Widow/Widower</option>
-                                            <option value="">Separated/Annulled</option>
-                                            <option value="">Living with Partner</option>
+                                            <option value="Single">Single</option>
+                                            <option value="Married">Married</option>
+                                            <option value="Widow/Widower">Widow/Widower</option>
+                                            <option value="Seperated/Annulled">Separated/Annulled</option>
+                                            <option value="Living with Partner">Living with Partner</option>
                                         </select>
                                     </div>
                                 </div>
@@ -220,12 +225,12 @@
                                     <div class="col-md-6">
                                         <select name="civil_status" class="form-control">
                                             <option value="">Please Select</option>
-                                            <option value="">Health Care Worker</option>
-                                            <option value="">Senior Citizen</option>
-                                            <option value="">Indigent</option>
-                                            <option value="">Uniformed Personnel</option>
-                                            <option value="">Essential Worker</option>
-                                            <option value="">Other</option>
+                                            <option value="Health Care Worker">Health Care Worker</option>
+                                            <option value="Senior Citizen">Senior Citizen</option>
+                                            <option value="Indigent">Indigent</option>
+                                            <option value="Uniformed Personnel">Uniformed Personnel</option>
+                                            <option value="Essential Worker">Essential Worker</option>
+                                            <option value="Other">Other</option>
                                         </select>
                                     </div>
                                 </div>
@@ -240,10 +245,10 @@
                                     <div class="col-md-6">
                                         <select name="civil_status" class="form-control">
                                             <option value="">Please Select</option>
-                                            <option value="">PRC Number</option>
-                                            <option value="">OSCA Number</option>
-                                            <option value="">Facility ID Number</option>
-                                            <option value="">Other ID</option>
+                                            <option value="PRC Number">PRC Number</option>
+                                            <option value="OSCA Number">OSCA Number</option>
+                                            <option value="Facility ID Number">Facility ID Number</option>
+                                            <option value="Other ID">Other ID</option>
                                         </select>
                                     </div>
                                 </div>
@@ -256,7 +261,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control">
+                                        <input type="text" name="civil_id_number" class="form-control">
                                     </div>
                                 </div>
 
@@ -270,11 +275,11 @@
                                     <div class="col-md-6">
                                         <select name="civil_status" class="form-control">
                                             <option value="">Please Select</option>
-                                            <option value="">Government Employed</option>
-                                            <option value="">Private Employed</option>
-                                            <option value="">Self Employed</option>
-                                            <option value="">Private Practitioner</option>
-                                            <option value="">Others</option>
+                                            <option value="Government Employed">Government Employed</option>
+                                            <option value="Private Employed">Private Employed</option>
+                                            <option value="Self Employed">Self Employed</option>
+                                            <option value="Private Practitioner">Private Practitioner</option>
+                                            <option value="Others">Others</option>
                                         </select>
                                     </div>
                                 </div>
@@ -287,7 +292,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control">
+                                        <input type="text" name="philhealth_id_number" class="form-control">
                                     </div>
                                 </div>
 
@@ -299,7 +304,7 @@
                                 </div>
                                 <div class="row mb-5">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control">
+                                        <input type="text" name="pwd_id_number" class="form-control">
                                     </div>
                                 </div>
 
@@ -314,11 +319,11 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 mt-0">
-                                        <input type="radio" class="ml-3">
+                                        <input type="radio" name="covid_patient" value="Yes" class="ml-3">
                                         <small class="text-gender pl-1">Yes</small>
                                     </div>
                                     <div class="col-md-12 mt-0">
-                                        <input type="radio" class="ml-3">
+                                        <input type="radio" name="covid_patient" value="No" class="ml-3">
                                         <small class="text-gender pl-1">No</small>
                                     </div>
                                 </div>
@@ -334,25 +339,25 @@
                                     <div class="col-md-6">
                                         <select name="civil_status" class="form-control">
                                             <option value="">Please Select</option>
-                                            <option value="">Dental Hygieniest</option>
-                                            <option value="">Dental Technologist</option>
-                                            <option value="">Dentist</option>
-                                            <option value="">Medical Technologist</option>
-                                            <option value="">Midwife</option>
-                                            <option value="">Nurse</option>
-                                            <option value="">Nutritionist Dietician</option>
-                                            <option value="">Occupational Therapist</option>
-                                            <option value="">Optometrist</option>
-                                            <option value="">Pharmacist</option>
-                                            <option value="">Physical Therapist</option>
-                                            <option value="">Physician</option>
-                                            <option value="">Radiologic Technologist</option>
-                                            <option value="">Respiratoty Therapist</option>
-                                            <option value="">X-ray Technologist</option>
-                                            <option value="">Barangay Health Worker</option>
-                                            <option value="">Maintenance Staff</option>
-                                            <option value="">Administrative Staff</option>
-                                            <option value="">Others</option>
+                                            <option value="Dental Hygieniest">Dental Hygieniest</option>
+                                            <option value="Dental Technologist">Dental Technologist</option>
+                                            <option value="Dentist">Dentist</option>
+                                            <option value="Medical Technologist">Medical Technologist</option>
+                                            <option value="Midwife">Midwife</option>
+                                            <option value="Nurse">Nurse</option>
+                                            <option value="Nutritionist Dietician">Nutritionist Dietician</option>
+                                            <option value="Occupational Therapist">Occupational Therapist</option>
+                                            <option value="Optometrist">Optometrist</option>
+                                            <option value="Pharmacist">Pharmacist</option>
+                                            <option value="Physical Therapist">Physical Therapist</option>
+                                            <option value="Physician">Physician</option>
+                                            <option value="Radiologic Technologist">Radiologic Technologist</option>
+                                            <option value="Respiratoty Therapist">Respiratoty Therapist</option>
+                                            <option value="X-ray Technologist">X-ray Technologist</option>
+                                            <option value="Barangay Health Worker">Barangay Health Worker</option>
+                                            <option value="Maintenance Staff">Maintenance Staff</option>
+                                            <option value="Administrative Staff">Administrative Staff</option>
+                                            <option value="Others">Others</option>
                                         </select>
                                     </div>
                                 </div>
@@ -365,7 +370,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control">
+                                        <input type="text" name="name_employer" class="form-control">
                                     </div>
                                 </div>
 
@@ -377,7 +382,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control">
+                                        <input type="text" name="province_employer" class="form-control">
                                     </div>
                                 </div>
 
@@ -389,11 +394,11 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control">
+                                        <input type="text" name="municipality_employer" class="form-control">
                                         <small class="text-sm-footer pl-1">Municipality</small>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control">
+                                        <input type="text" name="barangay_employer" class="form-control">
                                         <small class="text-sm-footer pl-1">Barangay</small>
                                     </div>
                                 </div>
@@ -406,7 +411,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" placeholder="09xxxxxxxxx">
+                                        <input type="text" name="contact_number_employer" class="form-control" placeholder="09xxxxxxxxx">
                                     </div>
                                 </div>
 
@@ -421,11 +426,11 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 mt-0">
-                                        <input type="radio" class="ml-3">
+                                        <input type="radio" name="pregnant_status" value="Pregnant" class="ml-3">
                                         <small class="text-gender pl-1">Pregnant</small>
                                     </div>
                                     <div class="col-md-12 mt-0">
-                                        <input type="radio" class="ml-3">
+                                        <input type="radio" name="pregnant_status" value="Not Pregnant" class="ml-3">
                                         <small class="text-gender pl-1">Not Pregnant</small>
                                     </div>
                                 </div>
