@@ -10,23 +10,24 @@ async function submitForm(event){
     if(result.status === 'success'){
         Swal.fire({
             icon: 'success',
-            title: 'Redirecting..',
+            title: 'QR Verified',
+            text: 'Please wait while we rediect you to the Covid-19 Vaccination Registration Page',
             timer: 2000,
             timerProgressBar : true,
         }).then((resp) =>{
             if (resp.dismiss === Swal.DismissReason.timer || resp.isConfirmed) {
                 let _tokens = document.getElementsByName('_token')[0].value;
                 let objAddress = checkAddress(result.data[0].address);
-                // console.log(objAddress);
-                let formData = {_token : _tokens, qr_code : result.data[0].qr_code, first_name : result.data[0].first_name, middle_name : result.data[0].middle_name, last_name : result.data[0].last_name, contact_number : result.data[0].contact_number};
+                // console.log(objAddress.province);
+                let formData = {_token : _tokens, qr_code : result.data[0].qr_code, first_name : result.data[0].first_name, middle_name : result.data[0].middle_name, last_name : result.data[0].last_name, contact_number : result.data[0].contact_number , province: objAddress.province, municipality: objAddress.municipality, barangay : objAddress.barangay};
                 SendPost(formData);
               }
         })
     }else if(result.status === 'invalid'){
         Swal.fire({
             icon: 'error',
-            title: 'Error',
-            text: "Qr Code not registered"
+            title: 'Unregistered QR Code',
+            text: "You will be redirected to ACTS QR Registration page"
         }).then((resp)=>{
             if(resp.isConfirmed){
                 window.location.replace('http://trace.southernleyte.org.ph/signup');
@@ -36,7 +37,7 @@ async function submitForm(event){
 
 }
 
-function checkAddress(address){
+ function checkAddress(address){
     let objectData = {province: "", municipality: "", barangay: ""};
     let newAddress = address.toLowerCase();
     for(var province in r){
@@ -44,6 +45,8 @@ function checkAddress(address){
             objectData.province = province;
         }
     }
+
+    // console.log(objectData.province);
 
     for(let municipality in r[objectData.province]){
         if(newAddress.match(municipality.toLowerCase())){

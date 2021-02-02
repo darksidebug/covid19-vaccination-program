@@ -19,6 +19,7 @@
 
     <!-- jquery -->
     <script src="{{ asset('assets/js/jquery.js') }}"></script>
+    <script src="{{ asset('assets/js/r8.js') }} "></script>
 
     <!-- js -->
     <script src="{{ asset('assets/js/app.js') }}"></script>
@@ -31,7 +32,7 @@
     <!-- script functions and animations -->
     <script src="{{ asset('assets/js/custom_script.js') }}"></script>
 
-    <script src="{{ asset('assets/js/r8.js') }} "></script>
+
     <!-- <script src="https://trace.southernleyte.org.ph/assets/js/r8.js"></script> -->
 
 

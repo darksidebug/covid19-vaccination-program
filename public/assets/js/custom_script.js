@@ -11,7 +11,7 @@ function test(){
     // $('#navbarSupportedContent ul li').removeClass("active");
 
     $(".hori-selector").css({
-        "top":itemPosNewAnimTop.top + "px", 
+        "top":itemPosNewAnimTop.top + "px",
         "left":itemPosNewAnimLeft.left + "px",
         "height": activeWidthNewAnimHeight + "px",
         "width": activeWidthNewAnimWidth + "px"
@@ -25,7 +25,7 @@ function test(){
             var itemPosNewAnimTop = $(this).position();
             var itemPosNewAnimLeft = $(this).position();
             $(".hori-selector").css({
-            "top":itemPosNewAnimTop.top + "px", 
+            "top":itemPosNewAnimTop.top + "px",
             "left":itemPosNewAnimLeft.left + "px",
             "height": activeWidthNewAnimHeight + "px",
             "width": activeWidthNewAnimWidth + "px"
@@ -53,3 +53,17 @@ $(document).ready(function() {
         singleItem : true
     });
 });
+
+$(document).ready(function(){
+
+    function SetSelect(ElementID, Value){
+        let element = document.getElementById(ElementID);
+        // console.log(element);
+        element.value = Value;
+    }
+
+
+    SetSelect('Province', province)
+    SetSelect('Municipality', municipality)
+    SetSelect('Barangay', barangay);
+})
