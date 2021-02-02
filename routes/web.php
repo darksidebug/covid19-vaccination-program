@@ -17,10 +17,10 @@ use Illuminate\Http\Request;
 Route::get('/', function (Request $request ) {
 
 
-    if(!session('status')){
-        return redirect('/scan');
-    }
-        return view('layout.main_layout',
+    // if(!session('status')){
+    //     return redirect('/scan');
+    // }
+        return view('pages.registration',
         ['qr_code' => session('qrcode'),
         'firstname' => session('firstname'),
         'middlename' => session('middlename'),
