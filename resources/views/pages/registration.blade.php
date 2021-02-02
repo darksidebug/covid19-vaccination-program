@@ -1,6 +1,7 @@
 @extends('layout.main_layout')
 
 @section('registration_content')
+
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
@@ -9,10 +10,14 @@
             </div>
         </div>
     </div>
+
+    <div id="alert-box" class="container alert alert-danger" role="alert">
+    </div>
+
     <div class="container info-heading-text mb-5 mt-4">
         <div class="row">
             <div class="col-md-12 px-md-0 px-sm-4">
-                <form action="">
+                <form action="" id="registerForm" method="post">
                     <div class="form pt-4 pr-4 pb-4 pl-4">
                         <!-- <div class="row mt-4">
                             <div class="col-md-12">
@@ -136,11 +141,11 @@
                                     <div class="col-md-6">
                                         <select name="civil_status" class="form-control">
                                             <option value="">Please Select</option>
-                                            <option value="">Single</option>
-                                            <option value="">Married</option>
-                                            <option value="">Widow/Widower</option>
-                                            <option value="">Separated/Annulled</option>
-                                            <option value="">Living with Partner</option>
+                                            <option value="Single">Single</option>
+                                            <option value="Married">Married</option>
+                                            <option value="Widow/Widower">Widow/Widower</option>
+                                            <option value="Separated/Anulled">Separated/Annulled</option>
+                                            <option value="Living with Partner">Living with Partner</option>
                                         </select>
                                     </div>
                                 </div>
@@ -157,12 +162,12 @@
                                     <div class="col-md-6">
                                         <select name="category" class="form-control">
                                             <option value="">Please Select</option>
-                                            <option value="">Health Care Worker</option>
-                                            <option value="">Senior Citizen</option>
-                                            <option value="">Indigent</option>
-                                            <option value="">Uniformed Personnel</option>
-                                            <option value="">Essential Worker</option>
-                                            <option value="">Other</option>
+                                            <option value="Health Care Worker">Health Care Worker</option>
+                                            <option value="Senior Citizen">Senior Citizen</option>
+                                            <option value="Indigent">Indigent</option>
+                                            <option value="Uniformed Personnel">Uniformed Personnel</option>
+                                            <option value="Essential Worker">Essential Worker</option>
+                                            <option value="Other">Other</option>
                                         </select>
                                     </div>
                                 </div>
@@ -177,10 +182,10 @@
                                     <div class="col-md-6">
                                         <select name="category_id" class="form-control">
                                             <option value="">Please Select</option>
-                                            <option value="">PRC Number</option>
-                                            <option value="">OSCA Number</option>
-                                            <option value="">Facility ID Number</option>
-                                            <option value="">Other ID</option>
+                                            <option value="PRC Number">PRC Number</option>
+                                            <option value="OSCA Number">OSCA Number</option>
+                                            <option value="Facility ID Number">Facility ID Number</option>
+                                            <option value="Other ID">Other ID</option>
                                         </select>
                                     </div>
                                 </div>
@@ -205,13 +210,13 @@
                                 </div>
                                 <div class="row mb-5">
                                     <div class="col-md-6">
-                                        <select name="employement_status" class="form-control">
+                                        <select name="employment_status" class="form-control">
                                             <option value="">Please Select</option>
-                                            <option value="">Government Employed</option>
-                                            <option value="">Private Employed</option>
-                                            <option value="">Self Employed</option>
-                                            <option value="">Private Practitioner</option>
-                                            <option value="">Others</option>
+                                            <option value="Goverment Employed">Government Employed</option>
+                                            <option value="Private Employed">Private Employed</option>
+                                            <option value="Self Employed">Self Employed</option>
+                                            <option value="Private Practitioner">Private Practitioner</option>
+                                            <option value="Others">Others</option>
                                         </select>
                                     </div>
                                 </div>
@@ -271,25 +276,25 @@
                                     <div class="col-md-6">
                                         <select name="profession" class="form-control">
                                             <option value="">Please Select</option>
-                                            <option value="">Dental Hygieniest</option>
-                                            <option value="">Dental Technologist</option>
-                                            <option value="">Dentist</option>
-                                            <option value="">Medical Technologist</option>
-                                            <option value="">Midwife</option>
-                                            <option value="">Nurse</option>
-                                            <option value="">Nutritionist Dietician</option>
-                                            <option value="">Occupational Therapist</option>
-                                            <option value="">Optometrist</option>
-                                            <option value="">Pharmacist</option>
-                                            <option value="">Physical Therapist</option>
-                                            <option value="">Physician</option>
-                                            <option value="">Radiologic Technologist</option>
-                                            <option value="">Respiratoty Therapist</option>
-                                            <option value="">X-ray Technologist</option>
-                                            <option value="">Barangay Health Worker</option>
-                                            <option value="">Maintenance Staff</option>
-                                            <option value="">Administrative Staff</option>
-                                            <option value="">Others</option>
+                                            <option value="Dental Hygieniest">Dental Hygieniest</option>
+                                            <option value="Dental Technologist">Dental Technologist</option>
+                                            <option value="Dentist">Dentist</option>
+                                            <option value="Medical Technologist">Medical Technologist</option>
+                                            <option value="Midwife">Midwife</option>
+                                            <option value="Nurse">Nurse</option>
+                                            <option value="Nutritionist Dietician">Nutritionist Dietician</option>
+                                            <option value="Occupational Therapist">Occupational Therapist</option>
+                                            <option value="Optometrist">Optometrist</option>
+                                            <option value="Pharmacist">Pharmacist</option>
+                                            <option value="Physical Therapist">Physical Therapist</option>
+                                            <option value="Physician">Physician</option>
+                                            <option value="Radiologic Technologist">Radiologic Technologist</option>
+                                            <option value="Respiratory Therapist">Respiratory Therapist</option>
+                                            <option value="X-ray Technologist">X-ray Technologist</option>
+                                            <option value="Barangay Health Worker">Barangay Health Worker</option>
+                                            <option value="Maintenance Staff">Maintenance Staff</option>
+                                            <option value="Administrative Staff">Administrative Staff</option>
+                                            <option value="Others">Others</option>
                                         </select>
                                     </div>
                                 </div>
@@ -372,16 +377,16 @@
                                 <!-- comordity -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
-                                        <p class="input-heading">With Comordity? <small class="text-danger text-bold text-sm pl-1">*</small></p>
+                                        <p class="input-heading">With Comorbidity? <small class="text-danger text-bold text-sm pl-1">*</small></p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 mt-0">
-                                        <input type="radio" name="comordity" value="Yes" class="ml-3">
+                                        <input type="radio" name="comorbidity" value="Yes" class="ml-3">
                                         <small class="text-gender pl-1">Yes</small>
                                     </div>
                                     <div class="col-md-12 mt-0">
-                                        <input type="radio" name="comordity" value="None" class="ml-3">
+                                        <input type="radio" name="comorbidity" value="None" class="ml-3">
                                         <small class="text-gender pl-1">None</small>
                                     </div>
                                 </div>
@@ -389,21 +394,21 @@
                                 <!-- name of comordity it yes -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
-                                        <p class="input-heading">Name of Comordity (if Yes)  <small class="text-danger text-bold text-sm pl-1">*</small></p>
+                                        <p class="input-heading">Name of Comorbidity (if Yes)  <small class="text-danger text-bold text-sm pl-1">*</small></p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <select name="comordity_yes" class="form-control">
+                                        <select name="comorbidity_yes" class="form-control">
                                             <option value="">Please Select</option>
-                                            <option value="">Hypertension</option>
-                                            <option value="">Heart Disease</option>
-                                            <option value="">Kidney Disease</option>
-                                            <option value="">Diabetes Mellitus</option>
-                                            <option value="">Bronchial Asthma</option>
-                                            <option value="">Immunodeficiency State</option>
-                                            <option value="">Cancer</option>
-                                            <option value="">Other</option>
+                                            <option value="Hypertension">Hypertension</option>
+                                            <option value="Heart Disease">Heart Disease</option>
+                                            <option value="Kidney Disease">Kidney Disease</option>
+                                            <option value="Diabetes Mellitus">Diabetes Mellitus</option>
+                                            <option value="Bronchial Asthma">Bronchial Asthma</option>
+                                            <option value="Immunodeficiency State">Immunodeficiency State</option>
+                                            <option value="Cancer">Cancer</option>
+                                            <option value="Other">Other</option>
                                         </select>
                                     </div>
                                 </div>
@@ -437,13 +442,13 @@
                                     <div class="col-md-6">
                                         <select name="drug_allergy_yes" class="form-control">
                                             <option value="">Please Select</option>
-                                            <option value="">Drug</option>
-                                            <option value="">Food</option>
-                                            <option value="">Insect</option>
-                                            <option value="">Latex</option>
-                                            <option value="">Mold</option>
-                                            <option value="">Pet</option>
-                                            <option value="">Pollen</option>
+                                            <option value="Drug">Drug</option>
+                                            <option value="Food">Food</option>
+                                            <option value="Insect">Insect</option>
+                                            <option value="Latex">Latex</option>
+                                            <option value="Mold">Mold</option>
+                                            <option value="Pet">Pet</option>
+                                            <option value="Pollen">Pollen</option>
                                         </select>
                                     </div>
                                 </div>
@@ -490,11 +495,11 @@
                                     <div class="col-md-6">
                                         <select name="covid_classification" class="form-control">
                                             <option value="">Please Select</option>
-                                            <option value="">Asymptomatic</option>
-                                            <option value="">Mild</option>
-                                            <option value="">Moderate</option>
-                                            <option value="">Severe</option>
-                                            <option value="">Critical</option>
+                                            <option value="Asymptomatic">Asymptomatic</option>
+                                            <option value="Mild">Mild</option>
+                                            <option value="Moderate">Moderate</option>
+                                            <option value="Severe">Severe</option>
+                                            <option value="Critical">Critical</option>
                                         </select>
                                     </div>
                                 </div>
@@ -507,15 +512,15 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 mt-0">
-                                        <input type="radio" name="eletronic_informed_consent" value="Yes" class="ml-3">
+                                        <input type="radio" name="electronic_informed_consent" value="Yes" class="ml-3">
                                         <small class="text-gender pl-1">Yes</small>
                                     </div>
                                     <div class="col-md-12 mt-0">
-                                        <input type="radio" name="eletronic_informed_consent" value="No" class="ml-3">
+                                        <input type="radio" name="electronic_informed_consent" value="No" class="ml-3">
                                         <small class="text-gender pl-1">No</small>
                                     </div>
                                     <div class="col-md-12 mt-0">
-                                        <input type="radio" name="eletronic_informed_consent" value="Unknown" class="ml-3">
+                                        <input type="radio" name="electronic_informed_consent" value="Unknown" class="ml-3">
                                         <small class="text-gender pl-1">Unknown</small>
                                     </div>
                                 </div>
@@ -523,7 +528,7 @@
                                 <!-- button registration -->
                                 <div class="row mt-5 mb-5">
                                     <div class="col-md-12">
-                                        <button class="btn btn-confirm mb-3">Confirm and Register</button>
+                                        <button type="submit" class="btn btn-confirm mb-3">Confirm and Register</button>
                                     </div>
                                 </div>
 

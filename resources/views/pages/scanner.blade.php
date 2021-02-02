@@ -2,6 +2,7 @@
 
 @section('scan_content')
 
+<meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="container">
         <div class="text-center mt-5">
             <h3 class="text-center text-heading-scan text-heading pt-3">COVID-19 Vaccination Program</h3>

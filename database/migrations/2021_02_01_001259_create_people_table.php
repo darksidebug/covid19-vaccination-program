@@ -15,14 +15,14 @@ class CreatePeopleTable extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id();
-            $table->string("firstname");
-            $table->string('middlename');
-            $table->string('lastname');
-            $table->string('suffix');
+            $table->string("first_name");
+            $table->string('middle_name');
+            $table->string('last_name');
+            $table->string('suffix_name')->nullable();
             $table->string('province');
             $table->string('municipality');
             $table->string('barangay');
-            $table->string('street');
+            $table->string('purok');
             $table->string('contact');
             $table->date('birth_date');
             $table->string('gender');
@@ -31,17 +31,24 @@ class CreatePeopleTable extends Migration
             $table->string('category_id');
             $table->string('civil_id_number');
             $table->string('employment_status');
-            $table->string('philhealth_id');
-            $table->string('pwd_id_number');
+            $table->string('philhealth_id_number');
+            $table->string('pwd_id_number')->nullable();
             $table->string('direct_contact');
             $table->string('profession');
             $table->string('name_employer');
             $table->string('province_employer');
             $table->string('municipality_employer');
             $table->string('barangay_employer');
-            $table->string('contact_employer');
+            $table->string('contact_number_employer');
             $table->string('pregnant_status');
-            $table->string('');
+            $table->string('comorbidity');
+            $table->string('comorbidity_yes')->nullable();
+            $table->string('drug_allergy');
+            $table->string('drug_allergy_yes')->nullable();
+            $table->string('diagnose_covid');
+            $table->date('date_diagnose_covid_yes')->nullable();
+            $table->string('covid_classification')->nullable();
+            $table->string('electronic_informed_consent');
             $table->timestamps();
         });
     }

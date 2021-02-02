@@ -31,6 +31,9 @@
 
     <!-- script functions and animations -->
     <script src="{{ asset('assets/js/custom_script.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10" defer></script>
+    <script src="{{asset('assets/js/scanner-script.js')}}" defer></script>
+    <script src="{{asset('assets/js/asyncFunc.js') }}"defer></script>
 
 
     <!-- <script src="https://trace.southernleyte.org.ph/assets/js/r8.js"></script> -->

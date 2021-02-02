@@ -1,7 +1,7 @@
 async function submitForm(event){
     event.preventDefault();
 
-    let response = await fetch('http://localhost:8080/actsfootprints/assets/php/qrscanner.php',{
+    let response = await fetch('/api/qrcode',{
                 method : 'post',
                 body : new FormData(qrForm)
             });
