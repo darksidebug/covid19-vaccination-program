@@ -17,16 +17,18 @@ use Illuminate\Http\Request;
 Route::get('/', function (Request $request ) {
 
 
-    // if(!session('status')){
-    //     return redirect('/scan');
-    // }
-        return view('pages.registration',
-        ['qr_code' => session('qrcode'),
+    if(!session('status')){
+        return redirect('/scan');
+    }
+
+    return view('pages.registration',
+    [
+        'qr_code' => session('qrcode'),
         'firstname' => session('firstname'),
         'middlename' => session('middlename'),
         'lastname' => session('lastname'),
         'contact' => session('contact')
-        ]);
+    ]);
 
 });
 
@@ -46,5 +48,5 @@ Route::post('/postdata', function(Request $request){
 
 
 Route::get('/scan', function(){
-    return view('layout.scanner');
+    return view('pages.scanner');
 });

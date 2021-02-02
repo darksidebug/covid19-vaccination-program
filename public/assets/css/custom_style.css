@@ -203,6 +203,43 @@ input, select{
 }
 
 
+#qr-canvas {
+	margin: auto;
+	width: calc(100% - 20px);
+	max-width: 400px;
+}
+
+#btn-scan-qr {
+	cursor: pointer;
+}
+
+#btn-scan-qr img {
+	height: 10em;
+	padding: 15px;
+	margin: 15px;
+	background: white;
+}
+
+#qrcode{
+	padding-left: 15px !important;
+	padding-right: 15px !important;
+	border: 1px solid rgba(0, 0, 0, 0.3) !important;
+	border-radius: 6px !important;
+	height: 50px !important;
+}
+
+#qrcode:focus{
+	outline: #5161ce !important;
+}
+
+.text-heading-scan{
+	color: #5161ce !important;
+	letter-spacing: 0.06rem !important;
+	font-weight: 400 !important;
+	text-transform: uppercase;
+}
+
+
 
 @media (max-width: 991px){
 	#navbarSupportedContent ul li a{
