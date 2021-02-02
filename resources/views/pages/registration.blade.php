@@ -14,15 +14,15 @@
             <div class="col-md-12 px-md-0 px-sm-4">
                 <form action="">
                     <div class="form pt-4 pr-4 pb-4 pl-4">
-                        <div class="row mt-4">
+                        <!-- <div class="row mt-4">
                             <div class="col-md-12">
                                 <p class="text-danger">Note: Please verify if this information is correct. If not edit the information.</p>
                             </div>
-                        </div>
+                        </div> -->
 
                         
                         <!-- fullname -->
-                        <div id="owl-demo" class="owl-carousel">
+                        <div id="owl-demo" class="owl-carousel mt-4">
                             <div class="item p-2">
                                 <div class="row mt-1">
                                     <div class="col-md-12">
@@ -473,9 +473,9 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-12 mt-0">
+                                    <div class="col-md-6 mt-0">
                                         <input type="date" class="form-control" class="ml-3">
-                                        <small class="text-gender pl-1">Date</small>
+                                        <!-- <small class="text-sm-footer pl-1">Date</small> -->
                                     </div>
                                 </div>
 
@@ -518,14 +518,17 @@
                                         <small class="text-gender pl-1">Unknown</small>
                                     </div>
                                 </div>
+
+                                <!-- button registration -->
+                                <div class="row mt-5 mb-5">
+                                    <div class="col-md-12">
+                                        <button class="btn btn-confirm mb-3">Confirm and Register</button>
+                                    </div>
+                                </div>
+
                             </div>
 
-                            <!-- button registration -->
-                            <div class="row mt-4">
-                                <div class="col-md-12">
-                                    <button class="btn btn-confirm">Confirm and Register</button>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </form>
