@@ -6,14 +6,16 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <div class="container">
     <div class="text-center mt-5">
-    <img src="https://trace.southernleyte.org.ph/assets/img/SouthernLeyteLogo.png" width="75" height="75">
         <h2 class="text-center text-heading-scan text-heading pt-3">COVID-19 Vaccination Program</h2>
 
-        <div class="col-lg-4 offset-lg-4 col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 mt-5">
-            <div class="card shadow roundeds">
-                <div class="card-body pl-md-5 pr-md-5 pr-sm-4 pl-sm-4">
+        <div class="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 mt-5">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="text-center text-secondary pt-1">Good Day !</h4>
+                </div>
+                <div class="card-body">
                     <center>
-                        <a id="btn-scan-qr">
+                        <a id="btn-scan-qr" c>
                             <img src="https://uploads.sitepoint.com/wp-content/uploads/2017/07/1499401426qr_icon.svg">
                         </a>
                     </center>
@@ -22,7 +24,7 @@
                     <p class="text-center">Click QR image to scan</p>
                     <form action="" method="post" id="qrForm">
                         @csrf
-                        <input type="text" class="form-control" name="qrcode" id="qrcode" placeholder="Qr Code...">
+                        <input type="text" name="qrcode" id="qrcode" placeholder="Qr Code...">
                         <center>
                             <button type="submit" id="verifyButton"
                                 class="btn btn-confirm mt-2 mb-3 btn-verify spinner">

@@ -2,6 +2,7 @@
 
 body{
 	font-family: 'Roboto', sans-serif;
+	background-color: #f0f0f0;
 }
 * {
 	margin: 0;
@@ -277,4 +278,8 @@ input, select{
 		bottom: -25px;
 		left: -25px;
 	}
+}
+
+.roundeds {
+	border-radius: 1rem !important;
 }

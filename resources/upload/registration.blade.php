@@ -9,7 +9,7 @@
         </div>
 
             <div class="col p-lg-0">
-                <h4 class="text-heading pl-2 pr-2"> <strong> COVID-19 VACCINATION PROGRAM </strong></h4>
+                <h4 class="text-heading pl-2 pr-2">COVID-19 VACCINATION PROGRAM</h4>
             </div>
         </div>
     </div>
