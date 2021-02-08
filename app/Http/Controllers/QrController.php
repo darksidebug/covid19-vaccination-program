@@ -11,8 +11,16 @@ class QrController extends Controller
     //
     private $host = "localhost";
     private $db_name = "southern_tracing_covid";
+
+    // deployment
+    // private $username = "southern_covidtracing";
+    // private $password = "namra370h55v!";
+
+    //development
     private $username = "root";
     private $password = "";
+
+    
     private $conn;
 
     public function connect()

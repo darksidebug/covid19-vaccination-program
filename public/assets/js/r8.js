@@ -2,18 +2,16 @@ var R8 = '{"Biliran":{"Almeria":["Iyosan","Jamorawon","Lo-ok","Matanga","Pili","
 
 var r = JSON.parse(R8);
 
-
     $(document).ready(function(){
         const $elp = $("#Province");
-        const $elm = $("#Municipality");
-        const $elb = $("#Barangay");
+    const $elm = $("#Municipality");
+    const $elb = $("#Barangay");
 
         Object.keys(r).forEach(p => {
             $elp.append($('<option name="p-'+p+'"></option>').attr("value", p).text(p));
         });
-
-        $('#Province').val('Southern Leyte');
-        Object.keys(r['Southern Leyte']).forEach(m => {
+        $('#Province').val(province);
+        Object.keys(r[province]).forEach(m => {
             $elm.append($('<option name="p-'+m+'"></option>').attr("value", m).text(m));
         });
 
@@ -26,6 +24,7 @@ var r = JSON.parse(R8);
         });
 
         $("#Municipality").change(function() {
+            // console.log("municipality change");
             var pr = $("#Province").val();
             var mn = $("#Municipality").val();
             $elb.empty(); $elb.append($('<option></option>').attr("value", "").text(''));
@@ -33,4 +32,9 @@ var r = JSON.parse(R8);
                 $elb.append($('<option name="p-'+b+'"></option>').attr("value", b).text(b));
             });
         });
+
+        $('#Municipality').val(municipality);
+        Object.values(r[province][municipality]).forEach(b => {
+            $elb.append($('<option name="p-'+b+'"></option>').attr("value", b).text(b));
+        })
     });

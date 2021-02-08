@@ -29,9 +29,9 @@ class CreatePeopleTable extends Migration
             $table->string('civil_status');
             $table->string('category');
             $table->string('category_id');
-            $table->string('civil_id_number');
+            $table->string('category_id_number');
             $table->string('employment_status');
-            $table->string('philhealth_id_number');
+            $table->string('philhealth_id_number')->nullable();
             $table->string('pwd_id_number')->nullable();
             $table->string('direct_contact');
             $table->string('profession');
@@ -40,11 +40,11 @@ class CreatePeopleTable extends Migration
             $table->string('municipality_employer');
             $table->string('barangay_employer');
             $table->string('contact_number_employer');
-            $table->string('pregnant_status');
+            $table->string('pregnant_status')->nullable();
             $table->string('comorbidity');
             $table->string('comorbidity_yes')->nullable();
-            $table->string('drug_allergy');
-            $table->string('drug_allergy_yes')->nullable();
+            $table->string('allergy');
+            $table->string('allergy_yes')->nullable();
             $table->string('diagnose_covid');
             $table->date('date_diagnose_covid_yes')->nullable();
             $table->string('covid_classification')->nullable();

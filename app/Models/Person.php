@@ -10,6 +10,7 @@ class Person extends Model
     use HasFactory;
 
     protected $fillable = [
+        'qr_code',
         'first_name',
         'middle_name',
         'last_name',
@@ -24,7 +25,7 @@ class Person extends Model
         'civil_status',
         'category',
         'category_id',
-        'civil_id_number',
+        'category_id_number',
         'employment_status',
         'philhealth_id_number',
         'pwd_id_number',
@@ -38,8 +39,8 @@ class Person extends Model
         'pregnant_status',
         'comorbidity',
         'comorbidity_yes',
-        'drug_allergy',
-        'drug_allergy_yes',
+        'allergy',
+        'allergy_yes',
         'diagnose_covid',
         'date_diagnose_covid_yes',
         'covid_classification',

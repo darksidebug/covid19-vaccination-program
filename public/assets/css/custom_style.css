@@ -148,7 +148,7 @@ input, select{
 	position: relative;
 }
 .info-heading-text::after{
-	content: "Personal Information Verification";
+	content: "Personal Information";
 	background-color: #5161ce;
 	border: 1px solid #4858c0;
 	color: rgba(255,255,255,0.8);

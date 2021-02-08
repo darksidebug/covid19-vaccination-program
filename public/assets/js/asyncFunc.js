@@ -10,6 +10,11 @@ async function SaveData(e){
     // for (var value of formData.values()) {
     //     console.log(value);
     //  }
+    
+    let button = document.getElementById('confirmButton');
+
+    button.disabled = true;
+    button.innerHTML = "<span id='spinnerID' class='spinner-border'></span> Confirming";
 
 
 
@@ -40,23 +45,38 @@ async function SaveData(e){
         Swal.fire({
             icon : 'success',
             text : 'Success'
-        });
+        }).then((resp) => {
+            if(resp.isConfirmed){
+                window.location.replace('/');
+            }
+        })
 
-        window.location.replace('/');
+        
     }else{
         Swal.fire({
             icon : 'error',
             text : 'An occured while trying to saving the registration'
+        }).then((resp) => {
+            if(resp.isConfirmed){
+                let alert_box = document.getElementById('alert-box');
+                let alert_data = "";
+                alert_box.style.display = "block";
+                for(let x in returnData.errors){
+                    alert_data += `<li> ${returnData.errors[x]} </li>`;
+                }
+        
+                document.body.scrollTop = 0; // For Safari
+                document.documentElement.scrollTop = 0;
+                
+                alert_box.innerHTML = alert_data;
+            }
         })
 
-        let alert_box = document.getElementById('alert-box');
-        let alert_data = "";
-        for(let x in returnData.errors){
-            alert_data += `<li> ${returnData.errors[x]} </li>`;
-        }
-
-        alert_box.innerHTML = alert_data;
+        
     }
+    
+    button.disabled = false;
+    button.innerText = "Confirm and Register"
 
     // console.log(await response.json());
 

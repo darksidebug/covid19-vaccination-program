@@ -4,31 +4,39 @@
 
     <div class="container mt-5">
         <div class="row">
-            <div class="col-md-12">
+        <div class="col-2 col-md-1 ">
+            <img src="https://trace.southernleyte.org.ph/assets/img/SouthernLeyteLogo.png" width="50" height="50" class="" alt="" srcset="">
+        </div>
+
+            <div class="col p-lg-0">
                 <h4 class="text-heading pl-2 pr-2">COVID-19 VACCINATION PROGRAM</h4>
-                <p class="text-small-heading ml-2 mr-2">PROVINCE OF SOUTHERN LEYTE</p>
             </div>
         </div>
     </div>
 
-    <div id="alert-box" class="container alert alert-danger" role="alert">
+    <div id="alert-box" style="display:none; margin-bottom: 2rem !important" class="mt-2 container alert alert-danger" role="alert">
     </div>
 
     <div class="container info-heading-text mb-5 mt-4">
         <div class="row">
             <div class="col-md-12 px-md-0 px-sm-4">
-                <form action="" id="registerForm" method="post">
+                <form action="" name="registerForm" id="registerForm" method="post">
                     <div class="form pt-4 pr-4 pb-4 pl-4">
-                        <!-- <div class="row mt-4">
-                            <div class="col-md-12">
-                                <p class="text-danger">Note: Please verify if this information is correct. If not edit the information.</p>
-                            </div>
-                        </div> -->
+                        
 
+                        <input type="hidden" name="qr_code" id="qr_code" value="{{$qr_code}}">
 
                         <!-- fullname -->
                         <div id="owl-demo" class="owl-carousel mt-4">
+                            
                             <div class="item p-2">
+                                
+                                <div class="row mt-4">
+                                    <div class="col-md-12">
+                                        <p class="text-danger">Please verify if this information is correct. </p>
+                                    </div>
+                                </div>
+                                
                                 <div class="row mt-1">
                                     <div class="col-md-12">
                                         <p class="input-heading">Full Name <small class="text-danger text-bold text-sm pl-1">*</small></p>
@@ -59,20 +67,30 @@
                                         <p class="input-heading">Address <small class="text-danger text-bold text-sm pl-1">*</small></p>
                                     </div>
                                 </div>
+
+                                <div class="col-md-12">
+                                <p class="text-danger"> <small> Please supply the missing data, if any</small></p>
+                                </div>
+
                                 <div class="row">
                                     <div class="col-md-12 mt-0">
                                         <select type="text" id="Province" name="province" class="form-control">
+                                        <option value=""> </option>
                                         </select>
                                         <small class="text-sm-footer pl-1">Province</small>
                                     </div>
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-6 pr-md-1">
-                                        <select type="text" id="Municipality" name="municipality" class="form-control"></select>
+                                        <select type="text" id="Municipality" name="municipality" class="form-control">
+                                            <option value=""> </option>
+                                        </select>
                                         <small class="text-sm-footer pl-1">Municipal/City</small>
                                     </div>
                                     <div class="col-md-6 pl-md-1">
-                                        <select type="text" id="Barangay" name="barangay" class="form-control"></select>
+                                        <select type="text" id="Barangay" name="barangay" class="form-control">
+                                            <option value=""> </option>
+                                        </select>
                                         <small class="text-sm-footer pl-1">Barangay</small>
                                     </div>
                                 </div>
@@ -122,11 +140,11 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3 mt-0">
-                                        <input type="radio" name="gender" class="ml-3">
+                                        <input type="radio" name="gender" id="gender" value="Male" class="ml-3">
                                         <small class="text-gender pl-1">Male</small>
                                     </div>
                                     <div class="col-md-3 mt-0">
-                                        <input type="radio" name="gender" class="ml-3">
+                                        <input type="radio" name="gender" id="gender" value="Female" class="ml-3">
                                         <small class="text-gender pl-1">Female</small>
                                     </div>
                                 </div>
@@ -193,12 +211,12 @@
                                 <!-- cat ID num -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
-                                        <p class="input-heading">Civil ID Number <small class="text-danger text-bold text-sm pl-1">*</small></p>
+                                        <p class="input-heading">Category ID Number <small class="text-danger text-bold text-sm pl-1">*</small></p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" name="civil_id_number" class="form-control">
+                                        <input type="text" name="category_id_number" class="form-control">
                                     </div>
                                 </div>
 
@@ -224,7 +242,7 @@
                                 <!-- philhealth ID num -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
-                                        <p class="input-heading">PhilHealth ID Number <small class="text-danger text-bold text-sm pl-1">*</small></p>
+                                        <p class="input-heading">PhilHealth ID Number (if available)</p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -354,11 +372,11 @@
 
                             </div>
 
-                            <div class="item p-2">
+                            <div class="item p-2" id="pregnant_status">
                                 <!-- pregnancy -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
-                                        <p class="input-heading">Pregnancy Status (Note: will only appear of Female) <small class="text-danger text-bold text-sm pl-1">*</small></p>
+                                        <p class="input-heading">Pregnancy Status <small class="text-danger text-bold text-sm pl-1"> (required only if Female) </small> </p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -394,12 +412,12 @@
                                 <!-- name of comordity it yes -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
-                                        <p class="input-heading">Name of Comorbidity (if Yes)  <small class="text-danger text-bold text-sm pl-1">*</small></p>
+                                        <p class="input-heading">Name of Comorbidity (if Yes)  </p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <select name="comorbidity_yes" class="form-control">
+                                        <select name="comorbidity_yes" id="comorbidity_yes" class="form-control">
                                             <option value="">Please Select</option>
                                             <option value="Hypertension">Hypertension</option>
                                             <option value="Heart Disease">Heart Disease</option>
@@ -418,16 +436,16 @@
                                 <!-- drug allergy -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
-                                        <p class="input-heading">Drug Allergy? <small class="text-danger text-bold text-sm pl-1">*</small></p>
+                                        <p class="input-heading">Allergy? <small class="text-danger text-bold text-sm pl-1">*</small></p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12 mt-0">
-                                        <input type="radio" name="drug_allergy" value="Yes" class="ml-3">
+                                        <input type="radio" name="allergy" value="Yes" class="ml-3">
                                         <small class="text-gender pl-1">Yes</small>
                                     </div>
                                     <div class="col-md-12 mt-0">
-                                        <input type="radio" name="drug_allergy" value="No" class="ml-3">
+                                        <input type="radio" name="allergy" value="No" class="ml-3">
                                         <small class="text-gender pl-1">No</small>
                                     </div>
                                 </div>
@@ -435,12 +453,12 @@
                                 <!-- allergy if yes -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
-                                        <p class="input-heading">Name of Allergy (if Yes) <small class="text-danger text-bold text-sm pl-1">*</small></p>
+                                        <p class="input-heading">Name of Allergy (if Yes) </p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <select name="drug_allergy_yes" class="form-control">
+                                        <select name="allergy_yes" id="allergy_yes" class="form-control">
                                             <option value="">Please Select</option>
                                             <option value="Drug">Drug</option>
                                             <option value="Food">Food</option>
@@ -458,7 +476,7 @@
                                 <!-- ask if diagnose -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
-                                        <p class="input-heading">Diagnose with COVID-19? <small class="text-danger text-bold text-sm pl-1">*</small></p>
+                                        <p class="input-heading">Diagnosed with COVID-19? <small class="text-danger text-bold text-sm pl-1">*</small></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -475,12 +493,12 @@
                                 <!-- date if yes -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
-                                        <p class="input-heading">Date of first positive result/Specimen collection (if Yes) <small class="text-danger text-bold text-sm pl-1">*</small></p>
+                                        <p class="input-heading">Date of first positive result/Specimen collection (if Yes)</p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 mt-0">
-                                        <input type="date" name="date_diagnose_covid_yes" class="form-control" class="ml-3">
+                                        <input type="date" name="date_diagnose_covid_yes"  id="date_diagnose_covid_yes" class="form-control" class="ml-3">
                                         <!-- <small class="text-sm-footer pl-1">Date</small> -->
                                     </div>
                                 </div>
@@ -488,12 +506,12 @@
                                 <!-- classification -->
                                 <div class="row mt-4">
                                     <div class="col-md-12">
-                                        <p class="input-heading">COVID-19 Classification <small class="text-danger text-bold text-sm pl-1">*</small></p>
+                                        <p class="input-heading">COVID-19 Classification </p>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <select name="covid_classification" class="form-control">
+                                        <select name="covid_classification" id="covid_classification" class="form-control">
                                             <option value="">Please Select</option>
                                             <option value="Asymptomatic">Asymptomatic</option>
                                             <option value="Mild">Mild</option>
@@ -528,7 +546,7 @@
                                 <!-- button registration -->
                                 <div class="row mt-5 mb-5">
                                     <div class="col-md-12">
-                                        <button type="submit" class="btn btn-confirm mb-3">Confirm and Register</button>
+                                        <button type="submit" id="confirmButton" class="btn btn-confirm mb-3">Confirm and Register</button>
                                     </div>
                                 </div>
 

@@ -55,15 +55,56 @@ $(document).ready(function() {
 });
 
 $(document).ready(function(){
+    let gender = document.registerForm.gender;
+    let prev = null;
+    for (var i = 0; i < gender.length; i++) {
+        gender[i].addEventListener('change', function() {
+            (prev) ? prev.value: null;
+            if (this !== prev) {
+                prev = this;
+            }
 
-    function SetSelect(ElementID, Value){
-        let element = document.getElementById(ElementID);
-        // console.log(element);
-        element.value = Value;
+            if(prev.value === "Male"){
+                var nodes = document.getElementById("pregnant_status").getElementsByTagName('*');
+                for(var i = 0; i < nodes.length; i++){
+                    nodes[i].disabled = true;
+                    nodes[i].checked = false;
+                }
+            }else{
+                var nodes = document.getElementById("pregnant_status").getElementsByTagName('*');
+                for(var i = 0; i < nodes.length; i++){
+                    nodes[i].disabled = false;
+                    nodes[i].checked = false;
+                }
+            }
+        });
+
     }
 
+    DisableDropDown(document.registerForm.comorbidity, "comorbidity_yes", "Yes", "None");
+    DisableDropDown(document.registerForm.allergy, "allergy_yes", "Yes", "No");
+    DisableDropDown(document.registerForm.diagnose_covid, "date_diagnose_covid_yes", "Yes", "No");
+    DisableDropDown(document.registerForm.diagnose_covid, "covid_classification", "Yes", "No");
 
-    SetSelect('Province', province)
-    SetSelect('Municipality', municipality)
-    SetSelect('Barangay', barangay);
+    function DisableDropDown(element, dropdown, first_value, second_value){
+
+    let prev = null;
+    for (var i = 0; i < element.length; i++) {
+        element[i].addEventListener('change', function() {
+            (prev) ? prev.value: null;
+            if (this !== prev) {
+                prev = this;
+            }
+
+            if(prev.value === first_value){
+                document.getElementById(dropdown).disabled = false;
+            }else{
+                document.getElementById(dropdown).disabled = true;
+                document.getElementById(dropdown).selectedIndex = "0";
+                document.getElementById(dropdown).value = new Date(0);
+            }
+        });
+        }
+    }
+
 })

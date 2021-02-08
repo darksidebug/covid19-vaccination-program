@@ -1,5 +1,10 @@
 async function submitForm(event){
     event.preventDefault();
+    
+    let button = document.getElementById('verifyButton');
+
+    button.disabled = true;
+    button.innerHTML = "<span id='spinnerID' class='spinner-border'></span> Verifying QR Code";
 
     let response = await fetch('/api/qrcode',{
                 method : 'post',
@@ -18,7 +23,7 @@ async function submitForm(event){
             if (resp.dismiss === Swal.DismissReason.timer || resp.isConfirmed) {
                 let _tokens = document.getElementsByName('_token')[0].value;
                 let objAddress = checkAddress(result.data[0].address);
-                // console.log(objAddress.province);
+                // console.log(objAddress);
                 let formData = {_token : _tokens, qr_code : result.data[0].qr_code, first_name : result.data[0].first_name, middle_name : result.data[0].middle_name, last_name : result.data[0].last_name, contact_number : result.data[0].contact_number , province: objAddress.province, municipality: objAddress.municipality, barangay : objAddress.barangay};
                 SendPost(formData);
               }
@@ -34,12 +39,16 @@ async function submitForm(event){
             }
         });
     }
+    
+    button.disabled = false;
+    button.innerText = "Verify QR Code"
 
 }
 
  function checkAddress(address){
     let objectData = {province: "", municipality: "", barangay: ""};
     let newAddress = address.toLowerCase();
+
     for(var province in r){
         if(newAddress.match(province.toLowerCase())){
             objectData.province = province;
@@ -49,13 +58,13 @@ async function submitForm(event){
     // console.log(objectData.province);
 
     for(let municipality in r[objectData.province]){
-        if(newAddress.match(municipality.toLowerCase())){
+        if(newAddress.includes(municipality.toLowerCase())){
             objectData.municipality = municipality;
         }
     }
 
     for(let barangay in r[objectData.province[objectData.municipality]]){
-        if(newAddress.match(barangay.toLowerCase())){
+        if(newAddress.includes(barangay.toLowerCase())){
             objectData.province = barangay;
         }
     }
