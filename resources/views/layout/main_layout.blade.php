@@ -44,7 +44,7 @@
 
     @yield('registration_content')
     @yield('scan_content')
-    
+    @yield('content');
 
 </body>
 </html>

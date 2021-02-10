@@ -54,3 +54,7 @@ Route::post('/postdata', function(Request $request){
 Route::get('/scan', function(){
     return view('pages.scanner');
 });
+
+Route::get('/login', function(){
+    return view('pages.login');
+});
