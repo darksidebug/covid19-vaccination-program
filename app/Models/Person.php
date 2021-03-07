@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Vaccinated;
 
 class Person extends Model
 {
@@ -46,4 +47,8 @@ class Person extends Model
         'covid_classification',
         'electronic_informed_consent'
     ];
+
+    public function vaccinated(){
+        return $this->hasOne(Vaccinated::class);
+    }
 }

@@ -1,5 +1,17 @@
 
 
+ function CreateObject(formdata){
+    let data = {};
+    for (var pair of formdata.entries()) {
+        data[pair[0]] = pair[1];
+
+      }
+
+    //   console.log(data);
+
+      return data;
+}
+
 let myform = document.getElementById('registerForm');
 myform.addEventListener('submit',SaveData);
 
@@ -10,7 +22,7 @@ async function SaveData(e){
     // for (var value of formData.values()) {
     //     console.log(value);
     //  }
-    
+
     let button = document.getElementById('confirmButton');
 
     button.disabled = true;
@@ -47,11 +59,11 @@ async function SaveData(e){
             text : 'Success'
         }).then((resp) => {
             if(resp.isConfirmed){
-                window.location.replace('/');
+                window.location.replace('/register');
             }
         })
 
-        
+
     }else{
         Swal.fire({
             icon : 'error',
@@ -64,17 +76,17 @@ async function SaveData(e){
                 for(let x in returnData.errors){
                     alert_data += `<li> ${returnData.errors[x]} </li>`;
                 }
-        
+
                 document.body.scrollTop = 0; // For Safari
                 document.documentElement.scrollTop = 0;
-                
+
                 alert_box.innerHTML = alert_data;
             }
         })
 
-        
+
     }
-    
+
     button.disabled = false;
     button.innerText = "Confirm and Register"
 
@@ -83,14 +95,4 @@ async function SaveData(e){
 }
 
 
-function CreateObject(formdata){
-    let data = {};
-    for (var pair of formdata.entries()) {
-        data[pair[0]] = pair[1];
 
-      }
-
-    //   console.log(data);
-
-      return data;
-}

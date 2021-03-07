@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function (Request $request ) {
+Route::get('/register', function (Request $request ) {
 
 
     if(!session('status')){
@@ -55,6 +56,15 @@ Route::get('/scan', function(){
     return view('pages.scanner');
 });
 
-Route::get('/login', function(){
-    return view('pages.login');
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/', [UserController::class, 'returnDashboard'])->name('dashboard');
+    Route::get('/logout', [UserController::class, 'logout'])->name('logout.user');
+
+    Route::post('/register-user', [UserController::class, 'registerUser']);
 });
+
+Route::get('/login', [UserController::class, 'index'])->name('login');
+Route::post('/login', [UserController::class, 'loginUser'])->name('check.user');
+
+

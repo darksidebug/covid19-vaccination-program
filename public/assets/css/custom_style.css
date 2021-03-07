@@ -167,7 +167,7 @@ input, select{
 	background-color: #5161ce;
 	border: 1px solid #4858c0;
 	color: rgba(255,255,255,0.8);
-	padding: 15px;
+	/* padding: 15px; */
 	font-size: 15px !important;
 	font-weight: 100 !important;
 }

@@ -21,6 +21,13 @@
     <script src="{{ asset('assets/js/jquery.js') }}"></script>
     <script src="{{ asset('assets/js/r8.js') }} "></script>
 
+    {{-- custom r8 --}}
+    <script src="{{asset('assets/js/slmunicipality.js')}}"></script>
+
+    {{-- custom js --}}
+    <script src="{{asset('assets/js/dashboardjs.js')}}" defer></script>
+    <script src="{{asset('assets/js/main.js')}}" type="module" defer></script>
+
     <!-- js -->
     <script src="{{ asset('assets/js/app.js') }}"></script>
 
@@ -44,7 +51,8 @@
 
     @yield('registration_content')
     @yield('scan_content')
-    @yield('content');
+    @yield('content')
+
 
 </body>
 </html>
