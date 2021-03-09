@@ -25,7 +25,8 @@ class User extends Authenticatable
         'username',
         'password',
         'user_type',
-        'municipality'
+        'municipality',
+        'role'
     ];
 
     /**

@@ -206,7 +206,10 @@
                                 <input type="hidden" name="municipality" value="{{ Auth::user()->municipality }}">
                             @endif
 
-
+                            <div class="form-group">
+                                <label for="role">Role</label>
+                                <input type="text" id="role" name="role" class="form-control" placeholder="e.g (team_leader, counseling_nurse, encoder)">
+                            </div>
 
                             <div class="form-group">
                                 <button type="submit" id="registerbtn" class="btn btn-primary ">Register User</button>

@@ -43,7 +43,8 @@ class UserController extends Controller
             'username' => 'required',
             'user_type' => 'required',
             'password' => 'required',
-            'municipality' => 'required'
+            'municipality' => 'required',
+            'role' => 'required',
         ]);
 
         if($validation->fails()){
@@ -64,7 +65,8 @@ class UserController extends Controller
             'username' => $request->input('username'),
             'user_type' => $request-> input('user_type'),
             'password' => Hash::make($request->input('password')),
-            'municipality' => $request->input('municipality')
+            'municipality' => $request->input('municipality'),
+            'role' => $request->input('role')
         ]);
 
         return response()->json(['status' => 'success']);
