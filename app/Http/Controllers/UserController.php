@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
@@ -33,15 +34,9 @@ class UserController extends Controller
         ]);
     }
 
-    public function registerUser(Request $request){
-
-        // $attempt = Auth::attempt(['id'=> $request->input('auth_id')]);
-        // if(!$attempt)
-        // {
-        //     return response()->json(['status' => 'error', 'errors' => 'Invalid User']);
-        // }
-
-        $validation = Validator::make($request->all(),[
+    protected function validateUser(Request $request)
+    {
+        return Validator::make($request->all(),[
             'firstname' => 'required',
             'lastname' => 'required',
             'username' => 'required',
@@ -50,15 +45,19 @@ class UserController extends Controller
             'municipality' => 'required'
         ]);
 
+    }
+
+    public function registerUser(Request $request){
+
+        $validation=$this->validateUser($request);
+
         if($validation->fails()){
             return response()->json(['status' => 'error', 'errors' => $validation->errors()]);
         }
 
-
         if($request->input('password') !== $request->input('confirmPass')){
             return response()->json(['status' => 'error', 'errors' => 'Password does not match']);
         }
-
 
         User::create([
             'firstname' => $request->input('firstname'),
