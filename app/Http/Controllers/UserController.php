@@ -35,13 +35,9 @@ class UserController extends Controller
 
     public function registerUser(Request $request){
 
-        // $attempt = Auth::attempt(['id'=> $request->input('auth_id')]);
-        // if(!$attempt)
-        // {
-        //     return response()->json(['status' => 'error', 'errors' => 'Invalid User']);
-        // }
-
         $validation = Validator::make($request->all(),[
+            'name_of_facility' => 'required',
+            'prc_license_number' => 'required',
             'firstname' => 'required',
             'lastname' => 'required',
             'username' => 'required',
@@ -61,6 +57,8 @@ class UserController extends Controller
 
 
         User::create([
+            'name_of_facility' => $request->name_of_facility,
+            'prc_license_number' => $request->input('prc_license_number'),
             'firstname' => $request->input('firstname'),
             'lastname' => $request->input('lastname'),
             'username' => $request->input('username'),

@@ -40,7 +40,7 @@ export async function CreateUser(e){
         }).then((resp) => {
             if(resp.isConfirmed){
                 alert_box.style.display = "none";
-                // this.reset();
+                this.reset();
                 document.getElementById('adduserform').reset();
             }
         })
