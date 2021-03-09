@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
 
+
+    protected const VALID_TYPES=[
+        'Admin',
+        'LGU',
+        'Vaccinator',
+        'Monitoring',
+
+    ];
     //
     public function index(){
         return view('pages.login');
@@ -47,12 +55,22 @@ class UserController extends Controller
 
     }
 
+    protected function isValidUserType($userType)
+    {
+        return in_array($userType,self::VALID_TYPES);
+    }
+
     public function registerUser(Request $request){
 
         $validation=$this->validateUser($request);
 
         if($validation->fails()){
             return response()->json(['status' => 'error', 'errors' => $validation->errors()]);
+        }
+
+
+        if(!$this->isValidUserType($request->user_type)){
+            return response()->json(['status' => 'error', 'errors' =>'Invalid user type']);
         }
 
         if($request->input('password') !== $request->input('confirmPass')){

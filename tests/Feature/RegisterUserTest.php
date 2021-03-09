@@ -19,7 +19,7 @@ class RegisterUserTest extends TestCase
             'firstname' => 'Arman',
             'lastname' => 'Masangkay',
             'username' => 'armanmasangkay',
-            'user_type' => 'admin',
+            'user_type' => 'Admin',
             'password' => '1234',
             'confirmPass'=>'1234',
             'municipality' => 'Malitbog'
@@ -33,7 +33,7 @@ class RegisterUserTest extends TestCase
             'firstname' => 'Arman',
             'lastname' => 'Masangkay',
             'username' => 'armanmasangkay',
-            'user_type' => 'admin',
+            'user_type' => 'Admin',
             'municipality' => 'Malitbog'
         ]);
     }
@@ -44,7 +44,7 @@ class RegisterUserTest extends TestCase
             'firstname' => '',
             'lastname' => '',
             'username' => 'armanmasangkay',
-            'user_type' => 'admin',
+            'user_type' => 'Admin',
             'password' => '1234',
             'confirmPass'=>'12345',
             'municipality' => 'Malitbog'
@@ -68,7 +68,7 @@ class RegisterUserTest extends TestCase
             'firstname' => 'Arman',
             'lastname' => 'Masangkay',
             'username' => 'armanmasangkay',
-            'user_type' => 'admin',
+            'user_type' => 'Admin',
             'password' => '1234',
             'confirmPass'=>'12345',
             'municipality' => 'Malitbog'
@@ -80,8 +80,27 @@ class RegisterUserTest extends TestCase
         ]);
 
         $this->assertDatabaseCount('users',0);
+    }
 
 
+    public function test_register_user_using_invalid_user_type_returns_an_json_error()
+    {
+        $response=$this->post('/api/register-user',[
+            'firstname' => 'Arman',
+            'lastname' => 'Masangkay',
+            'username' => 'armanmasangkay',
+            'user_type' => 'you12312312',
+            'password' => '1234',
+            'confirmPass'=>'12345',
+            'municipality' => 'Malitbog'
+        ]);
+
+        $response->assertExactJson([
+            'status' => 'error',
+            'errors' => 'Invalid user type'
+        ]);
+
+        $this->assertDatabaseCount('users',0);
     }
 
 }
