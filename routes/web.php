@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScreeningController;
 use Illuminate\Support\Facades\Route;
@@ -16,24 +17,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/register', function (Request $request ) {
-
-
-    if(!session('status')){
-        return redirect('/scan');
-    }
-        return view('pages.registration',
-        ['qr_code' => session('qr_code'),
-        'first_name' => session('first_name'),
-        'middle_name' => session('middle_name'),
-        'last_name' => session('last_name'),
-        'contact' => session('contact'),
-        'province' => session('province'),
-        'municipality' => session('municipality'),
-        'barangay' => session('barangay')
-        ]);
-
-});
+Route::get('/register',[RegisterController::class,'index']);
 
 Route::post('/postdata', function(Request $request){
     // return response()->json(['status' => $request->get('qr_code')]);

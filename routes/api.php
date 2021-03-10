@@ -7,6 +7,8 @@ use App\Http\Controllers\QrController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VaccinatedController;
 use App\Http\Controllers\RecordsController;
+use App\Http\Controllers\VaccineController;
+use App\Models\Vaccine;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +36,6 @@ Route::post('/update-password', [UserController::class, 'updatePassword']);
 Route::post('/start-vaccination', [VaccinatedController::class, 'store']);
 
 Route::post('/vaccination-records', [RecordsController::class, 'getrecords']);
+
+Route::post('/vaccine', [VaccineController::class, 'create']);
 

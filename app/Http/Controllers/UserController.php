@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
@@ -12,6 +13,14 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
 
+
+    protected const VALID_TYPES=[
+        'Admin',
+        'LGU',
+        'Vaccinator',
+        'Monitoring',
+
+    ];
     //
     public function index(){
         return view('pages.login');
@@ -33,11 +42,17 @@ class UserController extends Controller
         ]);
     }
 
+<<<<<<< HEAD
+    protected function validateUser(Request $request)
+    {
+        return Validator::make($request->all(),[
+=======
     public function registerUser(Request $request){
 
         $validation = Validator::make($request->all(),[
             'name_of_facility' => 'required',
             'prc_license_number' => 'required',
+>>>>>>> ff0ea23728d2fdf34a6e64575fa57c6950a63e4c
             'firstname' => 'required',
             'lastname' => 'required',
             'username' => 'required',
@@ -47,15 +62,29 @@ class UserController extends Controller
             'role' => 'required',
         ]);
 
+    }
+
+    protected function isValidUserType($userType)
+    {
+        return in_array($userType,self::VALID_TYPES);
+    }
+
+    public function registerUser(Request $request){
+
+        $validation=$this->validateUser($request);
+
         if($validation->fails()){
             return response()->json(['status' => 'error', 'errors' => $validation->errors()]);
         }
 
 
+        if(!$this->isValidUserType($request->user_type)){
+            return response()->json(['status' => 'error', 'errors' =>'Invalid user type']);
+        }
+
         if($request->input('password') !== $request->input('confirmPass')){
             return response()->json(['status' => 'error', 'errors' => 'Password does not match']);
         }
-
 
         User::create([
             'name_of_facility' => $request->name_of_facility,
