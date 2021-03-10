@@ -52,12 +52,9 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::post('/register-user', [UserController::class, 'registerUser']);
     Route::get('/counseling',[CounselingController::class,'index'])->name('counseling');
-<<<<<<< HEAD
     Route::get('/counseling/sheet',[CounselingController::class,'sheet'])->name('counseling.sheet');
  
     Route::post('/counseling/sheet',[CounselingController::class,'storeSheet']);
-=======
->>>>>>> ea65b8deaa29ee3223f3ae9ca4696a8979b9c780
     Route::get('/vaccine', [VaccineController::class, 'index']);
     Route::get('/vaccinator', [VaccinatorController::class, 'index']);
 
