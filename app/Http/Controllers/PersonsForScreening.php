@@ -5,6 +5,7 @@ use App\Models\Person;
 use App\Models\Status;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PersonsForScreening extends Controller
 {
