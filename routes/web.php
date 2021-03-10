@@ -4,11 +4,8 @@ use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScreeningController;
-<<<<<<< HEAD
 use App\Http\Controllers\PersonsForScreening;
-=======
 use App\Http\Controllers\VaccineController;
->>>>>>> 1f66452cd02c60a8e321afa5a9c8e16f81a0f009
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -36,8 +33,8 @@ Route::post('/postdata', function(Request $request){
     ->with('contact', $request->get('contact_number'))
     ->with('province', $request->get('province'))
     ->with('municipality', $request->get('municipality'))
-    ->with('barangay', $request->get('barangay'))
-    ;
+    ->with('barangay', $request->get('barangay'));
+    
     // redirect('/')->with('status','verified');
 
 });

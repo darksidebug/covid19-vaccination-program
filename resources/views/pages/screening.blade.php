@@ -19,6 +19,16 @@
 
     <div class="container info-heading-text-screening mb-5 mt-4">
         <div class="row">
+            @success
+            <div class="col-md-12 mt-5">
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            @endsuccess
             <div class="col-md-12 px-md-0 px-sm-4">
                 <form action="{{ route('screening') }}" name="registerForm" method="post">
                     @csrf

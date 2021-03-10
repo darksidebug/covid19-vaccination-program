@@ -18,6 +18,7 @@
             <h4 class="text-center text-secondary">Lists of Individuals for Screening</h4>
         </div>
         <div class="col-md-12">
+            
             <form action="{{ route('persons_lists') }}" method="post" class="mt-5">
                 @csrf
                 <div class="row">
