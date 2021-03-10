@@ -18,7 +18,9 @@ class VaccineController extends Controller
 
         if($validation->fails())
         {
-            return response
+            return response()->json(['status' => 'error' , 'errors' => $validation->array()]);
         }
+
+        return response()->json(['status' => 'success']);
     }
 }
