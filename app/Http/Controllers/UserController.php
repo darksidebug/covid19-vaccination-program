@@ -12,8 +12,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-
-
     protected const VALID_TYPES=[
         'Admin',
         'LGU',

@@ -13,4 +13,19 @@ class Status extends Model
         'people_id',
         'status'
     ];
+
+    public function isFirstDose()
+    {
+        $statusArr=explode("-",$this->status);
+        if($statusArr[1]!=="1")
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public function person()
+    {
+        return $this->belongsTo(Person::class,'id');
+    }
 }

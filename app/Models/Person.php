@@ -48,6 +48,11 @@ class Person extends Model
         'electronic_informed_consent'
     ];
 
+    public function fullname()
+    {
+        return $this->last_name.', ' .$this->first_name;
+    }
+
     public function vaccinated()
     {
         return $this->hasOne(Vaccinated::class);
@@ -55,6 +60,6 @@ class Person extends Model
 
     public function status()
     {
-        return $this->hasOne(Status::class);
+        return $this->hasOne(Status::class,'people_id');
     }
 }

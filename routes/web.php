@@ -4,9 +4,16 @@ use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScreeningController;
+<<<<<<< HEAD
 use App\Http\Controllers\VaccinatedController;
 use App\Http\Controllers\VaccinatorController;
+=======
+<<<<<<< HEAD
+use App\Http\Controllers\PersonsForScreening;
+=======
+>>>>>>> 8bd88619674e131618f815baac6c74b7fdc74412
 use App\Http\Controllers\VaccineController;
+>>>>>>> 1f66452cd02c60a8e321afa5a9c8e16f81a0f009
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -61,4 +68,8 @@ Route::group(['middleware' => 'auth'], function(){
 Route::get('/login', [UserController::class, 'index'])->name('login');
 Route::post('/login', [UserController::class, 'loginUser'])->name('check.user');
 
-Route::get('/screening',[ScreeningController::class, 'index'])->name('screening');
+Route::get('/screening', [ScreeningController::class, 'index'])->name('screening');
+Route::post('/screening', [ScreeningController::class, 'store']);
+
+Route::get('/lists-of-persons-for-screening', [PersonsForScreening::class, 'index'])->name('persons_lists');
+Route::post('/lists-of-persons-for-screening', [PersonsForScreening::class, 'filter']);
