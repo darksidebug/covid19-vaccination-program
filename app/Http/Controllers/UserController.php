@@ -12,8 +12,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-
-
     protected const VALID_TYPES=[
         'Admin',
         'LGU',
@@ -42,17 +40,9 @@ class UserController extends Controller
         ]);
     }
 
-<<<<<<< HEAD
     protected function validateUser(Request $request)
     {
         return Validator::make($request->all(),[
-=======
-    public function registerUser(Request $request){
-
-        $validation = Validator::make($request->all(),[
-            'name_of_facility' => 'required',
-            'prc_license_number' => 'required',
->>>>>>> ff0ea23728d2fdf34a6e64575fa57c6950a63e4c
             'firstname' => 'required',
             'lastname' => 'required',
             'username' => 'required',

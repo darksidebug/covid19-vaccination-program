@@ -3,6 +3,7 @@
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScreeningController;
+use App\Http\Controllers\PersonsForScreening;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -52,4 +53,8 @@ Route::group(['middleware' => 'auth'], function(){
 Route::get('/login', [UserController::class, 'index'])->name('login');
 Route::post('/login', [UserController::class, 'loginUser'])->name('check.user');
 
-Route::get('/screening',[ScreeningController::class, 'index'])->name('screening');
+Route::get('/screening', [ScreeningController::class, 'index'])->name('screening');
+Route::post('/screening', [ScreeningController::class, 'store']);
+
+Route::get('/lists-of-persons-for-screening', [PersonsForScreening::class, 'index'])->name('persons_lists');
+Route::post('/lists-of-persons-for-screening', [PersonsForScreening::class, 'filter']);

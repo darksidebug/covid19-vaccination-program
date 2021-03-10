@@ -178,6 +178,10 @@ input, select{
 	font-size: 15px !important;
 	font-weight: 100 !important;
 }
+
+.btn{
+	font-weight: 100 !important;
+}
 .btn-confirm:hover
 {
 	color: rgba(255,255,255,0.8);
