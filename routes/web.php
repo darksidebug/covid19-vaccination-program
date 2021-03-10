@@ -3,6 +3,7 @@
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScreeningController;
+use App\Http\Controllers\VaccineController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -47,6 +48,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/logout', [UserController::class, 'logout'])->name('logout.user');
 
     Route::post('/register-user', [UserController::class, 'registerUser']);
+    Route::get('/vaccine', [VaccineController::class, 'index']);
 });
 
 Route::get('/login', [UserController::class, 'index'])->name('login');

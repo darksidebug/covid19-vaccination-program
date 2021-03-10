@@ -25,6 +25,7 @@ class UserAdminSeeder extends Seeder
             'username' => 'admin',
             'user_type' => 'Admin',
             'password' => Hash::make('southernleyte'),
+            'role' => 'N/A'
         ]);
     }
 }
