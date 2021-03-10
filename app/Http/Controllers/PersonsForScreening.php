@@ -5,6 +5,7 @@ use App\Models\Person;
 use App\Models\Status;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PersonsForScreening extends Controller
 {
@@ -20,7 +21,7 @@ class PersonsForScreening extends Controller
 
             foreach($stats->person->counselled_locations as $counselled_info)
             {
-                if($counselled_info->municipality === Auth::user()->municipality && 
+                if($counselled_info->municipality === Auth::user()->municipality &&
                 $counselled_info->facility === Auth::user()->name_of_facility)
                 {
                     $individuals = $stats->person;
@@ -40,7 +41,7 @@ class PersonsForScreening extends Controller
 
         foreach($status as $stats)
         {
-            if($stats->person->counselled_location->municipality === Auth::user()->municipality && 
+            if($stats->person->counselled_location->municipality === Auth::user()->municipality &&
             $stats->person->counselled_location->facility === Auth::user()->name_of_facility)
             {
                 if($stats->person->counselled_location->last_name === $request->search)
