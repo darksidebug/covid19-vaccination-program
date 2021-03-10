@@ -49,11 +49,11 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/logout', [UserController::class, 'logout'])->name('logout.user');
 
     Route::post('/register-user', [UserController::class, 'registerUser']);
-<<<<<<< HEAD
     Route::get('/counseling',[CounselingController::class,'index'])->name('counseling');
-=======
+    Route::get('/counseling/sheet',[CounselingController::class,'sheet'])->name('counseling.sheet');
+ 
+    Route::post('/counseling/sheet',[CounselingController::class,'storeSheet']);
     Route::get('/vaccine', [VaccineController::class, 'index']);
->>>>>>> 426cd263c1b8af720765be1045ffa80c59d272f9
 });
 
 Route::get('/login', [UserController::class, 'index'])->name('login');
