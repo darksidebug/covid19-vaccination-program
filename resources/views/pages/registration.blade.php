@@ -1,6 +1,6 @@
 @extends('layout.main_layout')
 
-@section('registration_content')
+@section('content')
 
     <div class="container mt-5">
         <div class="row">

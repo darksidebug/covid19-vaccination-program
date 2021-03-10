@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ScreeningController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -67,4 +68,4 @@ Route::group(['middleware' => 'auth'], function(){
 Route::get('/login', [UserController::class, 'index'])->name('login');
 Route::post('/login', [UserController::class, 'loginUser'])->name('check.user');
 
-
+Route::get('/screening',[ScreeningController::class, 'index'])->name('screening');
