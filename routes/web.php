@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScreeningController;
 use App\Http\Controllers\VaccinatedController;
+use App\Http\Controllers\VaccinatorController;
 use App\Http\Controllers\PersonsForScreening;
 use App\Http\Controllers\VaccineController;
 use Illuminate\Support\Facades\Route;
@@ -34,8 +35,8 @@ Route::post('/postdata', function(Request $request){
     ->with('contact', $request->get('contact_number'))
     ->with('province', $request->get('province'))
     ->with('municipality', $request->get('municipality'))
-    ->with('barangay', $request->get('barangay'))
-    ;
+    ->with('barangay', $request->get('barangay'));
+    
     // redirect('/')->with('status','verified');
 
 });
@@ -53,7 +54,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/register-user', [UserController::class, 'registerUser']);
     Route::get('/counseling',[CounselingController::class,'index'])->name('counseling');
     Route::get('/counseling/sheet',[CounselingController::class,'sheet'])->name('counseling.sheet');
- 
+
     Route::post('/counseling/sheet',[CounselingController::class,'storeSheet']);
     Route::get('/vaccine', [VaccineController::class, 'index']);
     Route::get('/vaccinator', [VaccinatorController::class, 'index']);
