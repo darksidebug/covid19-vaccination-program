@@ -35,8 +35,8 @@ Route::post('/postdata', function(Request $request){
     ->with('contact', $request->get('contact_number'))
     ->with('province', $request->get('province'))
     ->with('municipality', $request->get('municipality'))
-    ->with('barangay', $request->get('barangay'))
-    ;
+    ->with('barangay', $request->get('barangay'));
+    
     // redirect('/')->with('status','verified');
 
 });

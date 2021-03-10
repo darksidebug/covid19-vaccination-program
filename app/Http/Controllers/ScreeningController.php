@@ -54,6 +54,6 @@ class ScreeningController extends Controller
             'dose'                                                  => ($request->deferral == 'on' ? 1 : 0)
         ]);
 
-        return redirect('/screening')->withSuccess(['msg' => $request->qr.' has '.($request->deferral == 'on' ? 'failed and ' : 'pass and ').'done screening ']);
+        return redirect('/screening')->withSuccess(['msg' => $request->qr.' has '.($request->deferral == 'on' ? 'failed and ' : 'pass and ').'done screening.']);
     }
 }
