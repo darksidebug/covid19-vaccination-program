@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Consent;
+use App\Models\CounselledLocation;
 use App\Models\Person;
 use App\Models\Status;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CounselingController extends Controller
 {
@@ -30,7 +32,14 @@ class CounselingController extends Controller
         $person=Person::find($request->person_id);
         $person->status->status='2-'.$request->dose;
         $person->status->save();
+     
+        $loc=CounselledLocation::create([
+            'person_id'=>$person->id,
+            'municipality'=>Auth::user()->municipality,
+            'facility'=>Auth::user()->name_of_facility
+        ]);
 
+        
         return view('pages.counseling-sheet-success');
     }
 
