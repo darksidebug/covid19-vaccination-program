@@ -30,7 +30,7 @@ class UserFactory extends Factory
             'user_type' => 'Admin',
             'password' => Hash::make('1234'),
             'municipality' => 'Malitbog',
-            'name_of_facility'=>'Some Facility',
+            'name_of_facility'=>'SOYMP',
             'prc_license_number'=>$this->faker->randomNumber(),
             'role'=>'nurse'
         ];
