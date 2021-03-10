@@ -7,20 +7,6 @@
                 <h5>Vaccination Table</h5>
             </center>
 
-                <div class="filter_items mb-3">
-                    <form action="" method="post">
-
-                        <h6>Filter</h6>
-                        <div class="row form-group">
-                            <select class="form-control col-sm-2" name="doz_filter" id="doz_filter">
-                                <option value="2-1">First Vaccination</option>
-                                <option value="2-2">2nd Dose</option>
-                            </select>
-                            <button class="form-control col-sm-1 btn btn-primary">Refresh</button>
-                        </div>
-
-                    </form>
-                </div>
             <div class="table-responsive">
                 <table class="table table-hover table-bordered">
                     <thead class="text-secondary">

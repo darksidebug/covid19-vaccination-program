@@ -5,6 +5,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScreeningController;
 use App\Http\Controllers\VaccinatedController;
+use App\Http\Controllers\VaccinatorController;
 use App\Http\Controllers\PersonsForScreening;
 use App\Http\Controllers\VaccineController;
 use Illuminate\Support\Facades\Route;
@@ -52,12 +53,9 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::post('/register-user', [UserController::class, 'registerUser']);
     Route::get('/counseling',[CounselingController::class,'index'])->name('counseling');
-<<<<<<< HEAD
     Route::get('/counseling/sheet',[CounselingController::class,'sheet'])->name('counseling.sheet');
- 
+
     Route::post('/counseling/sheet',[CounselingController::class,'storeSheet']);
-=======
->>>>>>> ea65b8deaa29ee3223f3ae9ca4696a8979b9c780
     Route::get('/vaccine', [VaccineController::class, 'index']);
     Route::get('/vaccinator', [VaccinatorController::class, 'index']);
 
