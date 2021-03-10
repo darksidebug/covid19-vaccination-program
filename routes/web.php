@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScreeningController;
@@ -47,6 +48,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/logout', [UserController::class, 'logout'])->name('logout.user');
 
     Route::post('/register-user', [UserController::class, 'registerUser']);
+    Route::get('/counseling',[CounselingController::class,'index'])->name('counseling');
 });
 
 Route::get('/login', [UserController::class, 'index'])->name('login');

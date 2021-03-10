@@ -26,7 +26,7 @@ class UserFactory extends Factory
         return [
             'firstname' => $this->faker->firstName,
             'lastname' => $this->faker->lastName,
-            'username' => $this->faker->unique()->lastName,
+            'username' => $this->faker->unique()->userName,
             'user_type' => 'Admin',
             'password' => Hash::make('1234'),
             'municipality' => 'Malitbog',

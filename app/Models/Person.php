@@ -48,7 +48,13 @@ class Person extends Model
         'electronic_informed_consent'
     ];
 
-    public function vaccinated(){
+    public function vaccinated()
+    {
         return $this->hasOne(Vaccinated::class);
+    }
+
+    public function status()
+    {
+        return $this->hasOne(Status::class);
     }
 }

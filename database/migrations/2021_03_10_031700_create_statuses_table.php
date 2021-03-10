@@ -16,14 +16,15 @@ class CreateStatusesTable extends Migration
         Schema::create('statuses', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('people_id');
-            $table->float('status');
+            $table->foreign('people_id')->references('id')->on('people')->onDelete('cascade');
+            $table->string('status');
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     *
+     *  
      * @return void
      */
     public function down()

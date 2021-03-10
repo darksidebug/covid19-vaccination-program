@@ -29,11 +29,16 @@ class UserController extends Controller
     public function loginUser(Request $request){
 
         $credentials = $request->only('username', 'password');
-
+       
         if (Auth::attempt($credentials)) {
+        
             $request->session()->regenerate();
             $id = Auth::user()->username;
 
+            if(Auth::user()->user_type==="Counseling"){
+                return redirect(route('counseling'));
+            }
+            
             return redirect()->intended('/');
         }
 
