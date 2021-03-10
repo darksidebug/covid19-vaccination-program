@@ -32,6 +32,7 @@ class UserFactory extends Factory
             'municipality' => 'Malitbog',
             'name_of_facility'=>'SOYMP',
             'prc_license_number'=>$this->faker->randomNumber(),
+            'user_position' => 'Doctor',
             'role'=>'nurse'
         ];
     }

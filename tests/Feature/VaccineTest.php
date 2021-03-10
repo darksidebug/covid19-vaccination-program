@@ -9,9 +9,9 @@ use Tests\TestCase;
 class VaccineTest extends TestCase
 {
 
-    use RefreshDatabase;
+    // use RefreshDatabase;
 
-    public function test_check_adding_invalid_data_in_vaccine()
+    public function test_check_adding_valid_data_in_vaccine()
     {
         $response = $this->post('/api/vaccine', [
             'batch_number' => '1',

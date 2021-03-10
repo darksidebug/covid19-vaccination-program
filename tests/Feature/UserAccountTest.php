@@ -22,11 +22,35 @@ class UserAccountTest extends TestCase
             'password' => 'southernleyte',
             'confirmPass' => 'southernleyte',
             'municipality' => 'Malitbog',
+            'user_position' => 'Doctor',
             'role'=>'nurse'
         ]);
+
+
 
         $response->assertJson(['status' => 'success']);
 
         // $response->assertDatabaseCount('users', 0);
+    }
+
+    public function test_register_user_position_is_null()
+    {
+        $response = $this->post('/api/register-user',[
+            'name_of_facility' => 'N/A',
+            'prc_license_number' => 'N/A',
+            'firstname' => 'admin',
+            'lastname' => 'admin',
+            'username' => 'admin',
+            'user_type' => 'Admin',
+            'password' => 'southernleyte',
+            'confirmPass' => 'southernleyte',
+            'municipality' => 'Malitbog',
+            'position' => 'N/A',
+            'role'=>'nurse'
+        ]);
+
+
+
+        $response->assertJson(['status' => 'error']);
     }
 }
