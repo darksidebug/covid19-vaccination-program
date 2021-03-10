@@ -29,7 +29,10 @@ class UserFactory extends Factory
             'username' => $this->faker->unique()->lastName,
             'user_type' => 'Admin',
             'password' => Hash::make('1234'),
-            'municipality' => 'Malitbog'
+            'municipality' => 'Malitbog',
+            'name_of_facility'=>'Some Facility',
+            'prc_license_number'=>$this->faker->randomNumber(),
+            'role'=>'nurse'
         ];
     }
 }

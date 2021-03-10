@@ -21,7 +21,8 @@ class UserAccountTest extends TestCase
             'user_type' => 'Admin',
             'password' => 'southernleyte',
             'confirmPass' => 'southernleyte',
-            'municipality' => 'Malitbog'
+            'municipality' => 'Malitbog',
+            'role'=>'nurse'
         ]);
 
         $response->assertJson(['status' => 'success']);

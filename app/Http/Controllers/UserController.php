@@ -42,17 +42,11 @@ class UserController extends Controller
         ]);
     }
 
-<<<<<<< HEAD
-    protected function validateUser(Request $request)
-    {
-        return Validator::make($request->all(),[
-=======
-    public function registerUser(Request $request){
+    public function validateUser(Request $request){
 
-        $validation = Validator::make($request->all(),[
+        return  Validator::make($request->all(),[
             'name_of_facility' => 'required',
             'prc_license_number' => 'required',
->>>>>>> ff0ea23728d2fdf34a6e64575fa57c6950a63e4c
             'firstname' => 'required',
             'lastname' => 'required',
             'username' => 'required',
@@ -69,7 +63,8 @@ class UserController extends Controller
         return in_array($userType,self::VALID_TYPES);
     }
 
-    public function registerUser(Request $request){
+    public function registerUser(Request $request)
+    {
 
         $validation=$this->validateUser($request);
 
