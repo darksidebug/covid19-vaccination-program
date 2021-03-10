@@ -6,3 +6,6 @@ document.getElementById('start-vaccination-form').addEventListener('submit', Sta
 
 document.getElementById('adduserform').addEventListener('submit', CreateUser);
 document.getElementById('records-form').addEventListener('submit', DisplayRecords);
+
+
+

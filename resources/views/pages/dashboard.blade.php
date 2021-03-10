@@ -24,6 +24,9 @@
                 <li class="nav-item">
                     <a class="nav-link" id= "adduser" href="javascript:void(0);"></i>Add User</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" id= "add-vaccine" href="/vaccine"></i>Add Vaccine</a>
+                </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link" id="manageaccounts-btn" href="javascript:void(0);">Manage Accounts</a>
                 </li> --}}
