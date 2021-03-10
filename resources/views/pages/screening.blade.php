@@ -1,6 +1,7 @@
 @extends('layout.main_layout')
 
 @section('content')
+
     <div class="container mt-5 logo-wrapper">
         <div class="row">
             <div class="col-2 col-md-1 sl-log">
@@ -19,9 +20,11 @@
     <div class="container info-heading-text-screening mb-5 mt-4">
         <div class="row">
             <div class="col-md-12 px-md-0 px-sm-4">
-                <form action="" name="registerForm" id="registerForm" method="post">
+                <form action="{{ route('screening') }}" name="registerForm" method="post">
+                    @csrf
                     <div class="form pt-4 pr-4 pb-4 pl-4">
-                        <input type="hidden" name="qr_code" id="qr_code" value="">
+                        <input type="hidden" name="id" value="{{ isset($_GET['id']) ? $_GET['id'] : '' }}">
+                        <input type="hidden" name="qr" value="{{ isset($_GET['qr']) ? $_GET['qr'] : '' }}">
                         <div class="row mt-1">
                             <!-- age -->
                             <div class="col-md-12">
@@ -66,7 +69,7 @@
                             <!-- does not manifest any symptoms -->
                             <div class="col-md-12 mt-2">
                                 <div class="d-flex justify-content-start">
-                                    <input type="checkbox" class="checkbox" name="manifest_symptoms">
+                                    <input type="checkbox" class="checkbox" name="manifest_any_symptoms">
                                     <p class="ml-3 mt-2 pt-1">Does not manifest any of the following symptoms: Fever/chills, Headache, Cough, Colds, 
                                     Sore Throat, Myalga, Fatigue, Weakness, Loss of smell/taste, Diarrhea,
                                     Shortness of breath/difficulty in breathing?</p>
@@ -75,48 +78,49 @@
                                     
                                     <div>
                                         <p class="ml-3 mt-2 pt-1">* If manifesting any of the mentioned symptom/s, specify all that apply</p>
+                                        @error('symptoms')<span class="text-danger ml-3">{{ $message }}</span>@enderror
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="fever_chills" value="Fever/chills">
+                                            <input type="checkbox" class="checkbox" name="symptoms[]" value="Fever/chills">
                                             <p class="ml-3 mt-2 pt-1">Fever/Chills</p>
                                         </div>
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="headache" value="Headache">
+                                            <input type="checkbox" class="checkbox" name="symptoms[]" value="Headache">
                                             <p class="ml-3 mt-2 pt-1">Headache</p>
                                         </div>
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="cough" value="Cough">
+                                            <input type="checkbox" class="checkbox" name="symptoms[]" value="Cough">
                                             <p class="ml-3 mt-2 pt-1">Cough</p>
                                         </div>
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="colds" value="Colds">
+                                            <input type="checkbox" class="checkbox" name="symptoms[]" value="Colds">
                                             <p class="ml-3 mt-2 pt-1">Colds</p>
                                         </div>
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="sore_throat" value="Soar Throat">
-                                            <p class="ml-3 mt-2 pt-1">Soar Throat/p>
+                                            <input type="checkbox" class="checkbox" name="symptoms[]" value="Soar Throat">
+                                            <p class="ml-3 mt-2 pt-1">Soar Throat</p>
                                         </div>
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="myalga" value="Myalga">
+                                            <input type="checkbox" class="checkbox" name="symptoms[]" value="Myalga">
                                             <p class="ml-3 mt-2 pt-1">Myalga</p>
                                         </div>
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="fatigue" value="Fatigue">
+                                            <input type="checkbox" class="checkbox" name="symptoms[]" value="Fatigue">
                                             <p class="ml-3 mt-2 pt-1">Fatigue</p>
                                         </div>
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="weakness" value="Weakness">
+                                            <input type="checkbox" class="checkbox" name="symptoms[]" value="Weakness">
                                             <p class="ml-3 mt-2 pt-1">Weakness</p>
                                         </div>
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="smell_taste" value="Loss of smell/taste">
+                                            <input type="checkbox" class="checkbox" name="symptoms[]" value="Loss of smell/taste">
                                             <p class="ml-3 mt-2 pt-1">Loss of smell/taste</p>
                                         </div>
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="diarrhea" value="Diarrhea">
+                                            <input type="checkbox" class="checkbox" name="symptoms[]" value="Diarrhea">
                                             <p class="ml-3 mt-2 pt-1">Diarrhea</p>
                                         </div>
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="breathing_problem" value="Shortness of breath/difficulty in breathing">
+                                            <input type="checkbox" class="checkbox" name="symptoms[]" value="Shortness of breath/difficulty in breathing">
                                             <p class="ml-3 mt-2 pt-1">Shortness of breath/difficulty in breathing</p>
                                         </div>
                                     </div>
@@ -162,14 +166,15 @@
                                     <input type="checkbox" class="checkbox" name="not_pregnant">
                                     <p class="ml-3 mt-2 pt-1">Not pregnant?</p>
                                 </div>
-                                <div class="d-flex justify-content-start ml-4 pl-2">
+                                <div class=" ml-4 pl-2">
                                     
-                                    <div class="col-md-4">
-                                        <p class="ml-4 mt-2 pt-1">* If pregnant, select a trimester?</p>
-                                        <select type="text" class="form-control ml-4" name="trimester_pregnant">
+                                    <div class="col-md-6">
+                                        <p class="ml-3 mt-2 pt-1">* If pregnant, select a trimester?</p>
+                                        @error('trimester')<span class="text-danger ml-3">{{ $message }}</span>@enderror
+                                        <select type="text" class="form-control ml-3" name="trimester">
                                             <option value="">-- Please select --</option>
-                                            <option value="">2nd Trimester</option>
-                                            <option value="">3rd Trimester</option>
+                                            <option value="2nd Trimester">2nd Trimester</option>
+                                            <option value="3rd Trimester">3rd Trimester</option>
                                         </select>
                                     </div>
                                     
@@ -179,7 +184,7 @@
                             <!-- does not have HIV, Cancer etc -->
                             <div class="col-md-12 mt-2">
                                 <div class="d-flex justify-content-start">
-                                    <input type="checkbox" class="checkbox" name="not_have_following_ill">
+                                    <input type="checkbox" class="checkbox" name="have_following_illness">
                                     <p class="ml-3 mt-2 pt-1">Does not have any of the follwing: HIV, Cancer/Malignancy, Underwent Transplant, Under Steriod Medication/Treatment, Bed Ridden,
                                         terminal illness, less than 6 months prognosis</p>
                                 </div>
@@ -187,32 +192,33 @@
                                     
                                     <div>
                                         <p class="ml-3 mt-2 pt-1">* If with mentioned condition/s, specify</p>
+                                        @error('illnesses')<span class="text-danger ml-3">{{ $message }}</span>@enderror
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="hiv" value="HIV">
+                                            <input type="checkbox" class="checkbox" name="illnesses[]" value="HIV">
                                             <p class="ml-3 mt-2 pt-1">HIV</p>
                                         </div>
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="cancer_malignancy" value="Cancer/Malignancy">
+                                            <input type="checkbox" class="checkbox" name="illnesses[]" value="Cancer/Malignancy">
                                             <p class="ml-3 mt-2 pt-1">Cancer/Malignancy</p>
                                         </div>
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="underwent_transplant" value="Underwent Transplant">
+                                            <input type="checkbox" class="checkbox" name="illnesses[]" value="Underwent Transplant">
                                             <p class="ml-3 mt-2 pt-1">Underwent Transplant</p>
                                         </div>
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="steroid_medication" value="Under Steriod Medication/Treatment">
+                                            <input type="checkbox" class="checkbox" name="illnesses[]" value="Under Steriod Medication/Treatment">
                                             <p class="ml-3 mt-2 pt-1">Under Steriod Medication/Treatment</p>
                                         </div>
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="bed_ridden" value="Bed Ridden">
+                                            <input type="checkbox" class="checkbox" name="illnesses[]" value="Bed Ridden">
                                             <p class="ml-3 mt-2 pt-1">Bed Ridden</p>
                                         </div>
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="terminal_illness" value="Terminal Illness">
+                                            <input type="checkbox" class="checkbox" name="illnesses[]" value="Terminal Illness">
                                             <p class="ml-3 mt-2 pt-1">Terminal illness</p>
                                         </div>
                                         <div class="d-flex justify-content-start ml-3">
-                                            <input type="checkbox" class="checkbox" name="prognosis" value="Less 6 months prognosis">
+                                            <input type="checkbox" class="checkbox" name="illnesses[]" value="Less 6 months prognosis">
                                             <p class="ml-3 mt-2 pt-1">Less 6 months prognosis</p>
                                         </div>
                                     </div>
@@ -223,14 +229,15 @@
                             <!-- does not manifest any symptoms -->
                             <div class="col-md-12 mt-2">
                                 <div class="d-flex justify-content-start">
-                                    <input type="checkbox" class="checkbox">
+                                    <input type="checkbox" class="checkbox" name="deferral">
                                     <p class="ml-3 mt-2 pt-1">Deferral?</p>
                                 </div>
-                                <div class="d-flex justify-content-start ml-4 pl-2">
+                                <div class="ml-4 pl-2">
                                     
-                                    <div>
+                                    <div class="col-md-6">
                                         <p class="ml-3 mt-2 pt-1">* If deferral, specify</p>
-                                        <input type="text" class="form-control ml-3">
+                                        @error('specify_deferral_text')<span class="text-danger ml-3">{{ $message }}</span>@enderror
+                                        <input type="text" class="form-control ml-3" name="specify_deferral_text">
                                     </div>
                                     
                                 </div>
@@ -239,7 +246,8 @@
                             <!-- submit button-->
                             <div class="row mt-5 mb-3">
                                 <div class="col-md-12">
-                                    <button type="submit" id="confirmButton" class="btn btn-confirm mb-3 ml-3 mr-3">Submit</button>
+                                    <button type="submit" id="screeningButton" class="btn btn-confirm mb-3 ml-3 mr-1">Submit</button>
+                                    <a href="{{ route('persons_lists') }}" id="backButton" class="btn btn-secondary mb-3 pt-1">Cancel and Back</a>
                                 </div>
                             </div>
                         </div>

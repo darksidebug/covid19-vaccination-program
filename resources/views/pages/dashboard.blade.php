@@ -144,12 +144,29 @@
             <div class="col-sm-9 mt-3">
 
                 <div class="row card roundeds shadow">
-                    <h5 class="text-center mb-4"><strong>Register User</strong></h2>
+                    <h5 class="text-center mb-5"><strong>Register User</strong></h2>
                         <form action="/register-user" method="post" id="adduserform">
                             {{-- @csrf --}}
                             <div id="alert-box" style="display:none; margin-bottom: 2rem !important" class="mt-2 container alert alert-danger" role="alert">
                             </div>
 
+
+                            <div class="row justify-content-center">
+                                <div class="col-sm-6 form-group">
+                                <center>
+                                    <label for="usertype">User Type</label>
+                                </center>
+                                <select name="user_type" class="form-control" id="user_type">
+                                    @if (Auth::user()->user_type == 'Admin')
+                                        <option value="Admin">Admin</option>
+                                        <option value="LGU">LGU</option>
+                                    @endif
+                                    <option value="Vaccinator">Vaccinator</option>
+                                    <option value="Monitoring">Monitoring</option>
+                                    <option value="Monitoring">Counseling</option>
+                                </select>
+                                </div>
+                            </div>
 
                             <input type="hidden" name="auth_user" value="{{ Auth::id() }}">
                             <div class="form-group">
@@ -171,6 +188,17 @@
                                 </div>
                             </div>
 
+                            @if (Auth::user()->user_type == 'Admin')
+                            <div class="form-group">
+                                <label for="municipality">Municipality</label>
+                                <select type="text" id="municipality" name="municipality" class="form-control">
+                                    <option value=""> </option>
+                                </select>
+                            </div>
+                            @else
+                                <input type="hidden" name="municipality" value="{{ Auth::user()->municipality }}">
+                            @endif
+
                             <div class="form-group">
                                 <label for="username">Username</label>
                                 <input type="text" name="username" id="username" class="form-control">
@@ -188,26 +216,9 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="usertype">User Type</label>
-                                <select name="user_type" class="form-control" id="user_type">
-                                    @if (Auth::user()->user_type == 'Admin')
-                                        <option value="Admin">Admin</option>
-                                        <option value="LGU">LGU</option>
-                                    @endif
-                                    <option value="Vaccinator">Vaccinator</option>
-                                    <option value="Monitoring">Monitoring</option>
-                                </select>
+                                <label for="position">Position</label>
+                                <input type="text" name="username" id="position" class="form-control">
                             </div>
-                            @if (Auth::user()->user_type == 'Admin')
-                            <div class="form-group">
-                                <label for="municipality">Municipality</label>
-                                <select type="text" id="municipality" name="municipality" class="form-control">
-                                    <option value=""> </option>
-                                </select>
-                            </div>
-                            @else
-                                <input type="hidden" name="municipality" value="{{ Auth::user()->municipality }}">
-                            @endif
 
                             <div class="form-group">
                                 <label for="role">Role</label>

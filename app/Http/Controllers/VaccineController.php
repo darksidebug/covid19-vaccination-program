@@ -32,4 +32,9 @@ class VaccineController extends Controller
     {
         return view('pages.vaccine');
     }
+
+    public function store(Request $request)
+    {
+
+    }
 }
