@@ -25,6 +25,7 @@ class RegisterUserTest extends TestCase
             'municipality' => 'Malitbog',
             'name_of_facility' => 'N/A',
             'prc_license_number' => 'N/A',
+            'user_position'=>'N/A',
             'role'=>'nurse'
         ]);
 
