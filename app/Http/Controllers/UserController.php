@@ -17,7 +17,6 @@ class UserController extends Controller
         'LGU',
         'Vaccinator',
         'Monitoring',
-
     ];
     //
     public function index(){
@@ -27,16 +26,16 @@ class UserController extends Controller
     public function loginUser(Request $request){
 
         $credentials = $request->only('username', 'password');
-       
+
         if (Auth::attempt($credentials)) {
-        
+
             $request->session()->regenerate();
             $id = Auth::user()->username;
 
             if(Auth::user()->user_type==="Counseling"){
                 return redirect(route('counseling'));
             }
-            
+
             return redirect()->intended('/');
         }
 
@@ -47,16 +46,18 @@ class UserController extends Controller
 
     public function validateUser(Request $request){
 
+        // dd($request->all());
         return  Validator::make($request->all(),[
-            'name_of_facility' => 'required',
-            'prc_license_number' => 'required',
+            'name_of_facility' => 'required_if:user_type,Vaccinator',
+            'prc_license_number' => 'required_if:user_type , Vaccinator',
             'firstname' => 'required',
             'lastname' => 'required',
-            'username' => 'required',
+            'username' => 'required|unique:users,username',
             'user_type' => 'required',
             'password' => 'required',
             'municipality' => 'required',
-            'role' => 'required',
+            'user_position' => 'required_if:user_type,Vaccinator',
+            'role' => 'required_if:user_type, Vaccinator',
         ]);
 
     }
@@ -93,6 +94,7 @@ class UserController extends Controller
             'user_type' => $request-> input('user_type'),
             'password' => Hash::make($request->input('password')),
             'municipality' => $request->input('municipality'),
+            'user_position' => $request->user_position,
             'role' => $request->input('role')
         ]);
 

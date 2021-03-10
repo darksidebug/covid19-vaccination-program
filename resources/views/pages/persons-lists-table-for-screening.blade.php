@@ -19,7 +19,7 @@
         </div>
         <div class="col-md-12">
             
-            <form action="{{ route('persons_lists') }}" method="post" class="mt-5">
+            <!-- <form action="{{ route('persons_lists') }}" method="post" class="mt-5">
                 @csrf
                 <div class="row">
                     <div class="col-md-5 d-flex justify-content-center">
@@ -27,8 +27,8 @@
                         <button type="submit" class="btn btn-primary ml-1 pt-2" style="height: 44px; margin-top: 0px;">Search</button>
                     </div>
                 </div>
-            </form>
-            <div class="table-responsive mt-2 bg-white pt-4 pl-4 pr-4 pb-2 border border-gray" style="border-radius: 5px;">
+            </form> -->
+            <div class="table-responsive mt-2 bg-white pt-4 pl-4 pr-4 pb-2 border border-gray mt-5" style="border-radius: 5px;">
                 <table class="table table-hover table-bordered bg-white mt-1">
                     <thead>
                         <tr>

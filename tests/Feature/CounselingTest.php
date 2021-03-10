@@ -156,6 +156,12 @@ class CounselingTest extends TestCase
             'status'=>'2-1',
         ]);
 
+        $this->assertDatabaseHas('counselled_locations',[
+            'person_id'=>$person->id,
+            'municipality'=>$user->municipality,
+            'facility'=>$user->name_of_facility,
+        ]);
+
     }
 
 

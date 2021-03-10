@@ -17,10 +17,14 @@ class PersonsForScreening extends Controller
 
         foreach($status as $stats)
         {
-            if($stats->person->counselled_location->municipality === Auth::user()->municipality && 
-            $stats->person->counselled_location->facility === Auth::user()->name_of_facility)
+
+            foreach($stats->person->counselled_locations as $counselled_info)
             {
-                $individuals = $stats->person;
+                if($counselled_info->municipality === Auth::user()->municipality && 
+                $counselled_info->facility === Auth::user()->name_of_facility)
+                {
+                    $individuals = $stats->person;
+                }
             }
         }
 
