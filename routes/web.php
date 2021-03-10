@@ -1,9 +1,14 @@
 <?php
 
+use App\Http\Controllers\CounselingController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ScreeningController;
+<<<<<<< HEAD
 use App\Http\Controllers\PersonsForScreening;
+=======
+use App\Http\Controllers\VaccineController;
+>>>>>>> 1f66452cd02c60a8e321afa5a9c8e16f81a0f009
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -48,6 +53,8 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/logout', [UserController::class, 'logout'])->name('logout.user');
 
     Route::post('/register-user', [UserController::class, 'registerUser']);
+    Route::get('/counseling',[CounselingController::class,'index'])->name('counseling');
+    Route::get('/vaccine', [VaccineController::class, 'index']);
 });
 
 Route::get('/login', [UserController::class, 'index'])->name('login');

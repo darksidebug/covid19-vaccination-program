@@ -27,11 +27,16 @@ class UserController extends Controller
     public function loginUser(Request $request){
 
         $credentials = $request->only('username', 'password');
-
+       
         if (Auth::attempt($credentials)) {
+        
             $request->session()->regenerate();
             $id = Auth::user()->username;
 
+            if(Auth::user()->user_type==="Counseling"){
+                return redirect(route('counseling'));
+            }
+            
             return redirect()->intended('/');
         }
 
@@ -40,9 +45,11 @@ class UserController extends Controller
         ]);
     }
 
-    protected function validateUser(Request $request)
-    {
-        return Validator::make($request->all(),[
+    public function validateUser(Request $request){
+
+        return  Validator::make($request->all(),[
+            'name_of_facility' => 'required',
+            'prc_license_number' => 'required',
             'firstname' => 'required',
             'lastname' => 'required',
             'username' => 'required',
@@ -59,7 +66,8 @@ class UserController extends Controller
         return in_array($userType,self::VALID_TYPES);
     }
 
-    public function registerUser(Request $request){
+    public function registerUser(Request $request)
+    {
 
         $validation=$this->validateUser($request);
 

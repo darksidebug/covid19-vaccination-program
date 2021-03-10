@@ -22,7 +22,10 @@ class RegisterUserTest extends TestCase
             'user_type' => 'Admin',
             'password' => '1234',
             'confirmPass'=>'1234',
-            'municipality' => 'Malitbog'
+            'municipality' => 'Malitbog',
+            'name_of_facility' => 'N/A',
+            'prc_license_number' => 'N/A',
+            'role'=>'nurse'
         ]);
 
         $response->assertExactJson([
@@ -47,7 +50,10 @@ class RegisterUserTest extends TestCase
             'user_type' => 'Admin',
             'password' => '1234',
             'confirmPass'=>'12345',
-            'municipality' => 'Malitbog'
+            'municipality' => 'Malitbog',
+            'name_of_facility' => 'N/A',
+            'prc_license_number' => 'N/A',
+            'role'=>'nurse'
         ]);
 
         $response->assertJson([
@@ -71,7 +77,10 @@ class RegisterUserTest extends TestCase
             'user_type' => 'Admin',
             'password' => '1234',
             'confirmPass'=>'12345',
-            'municipality' => 'Malitbog'
+            'municipality' => 'Malitbog',
+            'name_of_facility' => 'N/A',
+            'prc_license_number' => 'N/A',
+            'role'=>'nurse'
         ]);
 
         $response->assertExactJson([
@@ -92,7 +101,10 @@ class RegisterUserTest extends TestCase
             'user_type' => 'you12312312',
             'password' => '1234',
             'confirmPass'=>'12345',
-            'municipality' => 'Malitbog'
+            'municipality' => 'Malitbog',
+            'name_of_facility' => 'N/A',
+            'prc_license_number' => 'N/A',
+            'role'=>'nurse'
         ]);
 
         $response->assertExactJson([

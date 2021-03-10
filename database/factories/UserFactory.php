@@ -26,10 +26,13 @@ class UserFactory extends Factory
         return [
             'firstname' => $this->faker->firstName,
             'lastname' => $this->faker->lastName,
-            'username' => $this->faker->unique()->lastName,
+            'username' => $this->faker->unique()->userName,
             'user_type' => 'Admin',
             'password' => Hash::make('1234'),
-            'municipality' => 'Malitbog'
+            'municipality' => 'Malitbog',
+            'name_of_facility'=>'SOYMP',
+            'prc_license_number'=>$this->faker->randomNumber(),
+            'role'=>'nurse'
         ];
     }
 }

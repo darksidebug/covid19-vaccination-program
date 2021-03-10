@@ -28,6 +28,7 @@ document.getElementById('adduser').addEventListener('click', function(e){
 
 
 
+
 function displayElement(ElementId){
     let nodes = document.getElementById('maincontent').children;
     for(let x = 0 ; x < nodes.length; x++){

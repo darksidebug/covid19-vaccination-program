@@ -2,13 +2,10 @@
 
 namespace Database\Seeders;
 
+use App\Models\Person;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\DB;
 
-use App\Models\User;
-
-class UserAdminSeeder extends Seeder
+class PersonSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,8 +14,6 @@ class UserAdminSeeder extends Seeder
      */
     public function run()
     {
-
-        User::factory()->create();
-   
+        Person::factory()->count(20)->create();
     }
 }

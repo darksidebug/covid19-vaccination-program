@@ -25,8 +25,9 @@
     <script src="{{asset('assets/js/slmunicipality.js')}}"></script>
 
     {{-- custom js --}}
-    <script src="{{asset('assets/js/dashboardjs.js')}}" defer></script>
     <script src="{{asset('assets/js/main.js')}}" type="module" defer></script>
+    <script src="{{asset('assets/js/dashboardjs.js')}}" defer></script>
+
 
     <!-- js -->
     <script src="{{ asset('assets/js/app.js') }}"></script>

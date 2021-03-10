@@ -13,7 +13,7 @@ class PeopleRegistration extends Controller
     //
     public function register(Request $request){
         $validation = Validator::make($request->all(),[
-            'qr_code' => 'required',
+            'qr_code' => 'required|unique:people,qr_code',
             'first_name' => 'required',
             'middle_name' => 'required',
             'last_name' => 'required',
@@ -56,4 +56,6 @@ class PeopleRegistration extends Controller
         return response()->json(['status' => 'success']);
 
     }
+
+
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Vaccine;
+
 
 class VaccineController extends Controller
 {
@@ -18,9 +20,16 @@ class VaccineController extends Controller
 
         if($validation->fails())
         {
-            return response()->json(['status' => 'error' , 'errors' => $validation->array()]);
+            return response()->json(['status' => 'error' , 'errors' => $validation->errors()]);
         }
 
+        Vaccine::create($request->all());
+
         return response()->json(['status' => 'success']);
+    }
+
+    public function index()
+    {
+        return view('pages.vaccine');
     }
 }
