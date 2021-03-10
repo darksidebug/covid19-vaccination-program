@@ -84,10 +84,10 @@
                                             <p class="ml-3 mt-2 pt-1">Does not manifest any of the following symptoms: Fever/chills, Headache, Cough, Colds, Sore Throat, Myalga, Fatigue, Weakness, Loss of smell/taste, Diarrhea,
                                             Shortness of breath/difficulty in breathing?</p>
                                         </div>
-                                        <div class="d-flex justify-content-start ml-5">
+                                        <div class="d-flex justify-content-start ml-4 pl-2">
                                             
                                             <div>
-                                                <p class="ml-3 mt-2 pt-1">If manifesting any of the mentioned symptom/s, specify all that apply</p>
+                                                <p class="ml-3 mt-2 pt-1">* If manifesting any of the mentioned symptom/s, specify all that apply</p>
                                                 <input type="text" class="form-control ml-3">
                                             </div>
                                             
@@ -132,11 +132,11 @@
                                             <input type="checkbox" class="checkbox">
                                             <p class="ml-3 mt-2 pt-1">Not pregnant?</p>
                                         </div>
-                                        <div class="d-flex justify-content-start ml-5">
+                                        <div class="d-flex justify-content-start ml-4 pl-2">
                                             
-                                            <div>
-                                                <p class="ml-3 mt-2 pt-1">If pregnant, select a trimester?</p>
-                                                <select type="text" class="form-control ml-3">
+                                            <div class="col-md-4">
+                                                <p class="ml-4 mt-2 pt-1">* If pregnant, select a trimester?</p>
+                                                <select type="text" class="form-control ml-4">
                                                     <option value="">-- Please select --</option>
                                                     <option value="">2nd Trimester</option>
                                                     <option value="">3rd Trimester</option>
@@ -156,7 +156,7 @@
                                         <div class="d-flex justify-content-start ml-5">
                                             
                                             <div>
-                                                <p class="ml-3 mt-2 pt-1">If with mentioned condition/s, specify</p>
+                                                <p class="ml-3 mt-2 pt-1">* If with mentioned condition/s, specify</p>
                                                 <div class="d-flex justify-content-start ml-3">
                                                     <input type="checkbox" class="checkbox">
                                                     <p class="ml-3 mt-2 pt-1">HIV</p>
@@ -173,11 +173,45 @@
                                                     <input type="checkbox" class="checkbox">
                                                     <p class="ml-3 mt-2 pt-1">Under Steriod Medication/Treatment</p>
                                                 </div>
+                                                <div class="d-flex justify-content-start ml-3">
+                                                    <input type="checkbox" class="checkbox">
+                                                    <p class="ml-3 mt-2 pt-1">Bed Ridden</p>
+                                                </div>
+                                                <div class="d-flex justify-content-start ml-3">
+                                                    <input type="checkbox" class="checkbox">
+                                                    <p class="ml-3 mt-2 pt-1">Terminal illness</p>
+                                                </div>
+                                                <div class="d-flex justify-content-start ml-3">
+                                                    <input type="checkbox" class="checkbox">
+                                                    <p class="ml-3 mt-2 pt-1">Less 6 months prognosis</p>
+                                                </div>
                                             </div>
                                             
                                         </div>
                                     </div>
 
+                                    <!-- does not manifest any symptoms -->
+                                    <div class="col-md-12 mt-2">
+                                        <div class="d-flex justify-content-start">
+                                            <input type="checkbox" class="checkbox">
+                                            <p class="ml-3 mt-2 pt-1">Deferral?</p>
+                                        </div>
+                                        <div class="d-flex justify-content-start ml-4 pl-2">
+                                            
+                                            <div>
+                                                <p class="ml-3 mt-2 pt-1">* If deferral, specify</p>
+                                                <input type="text" class="form-control ml-3">
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+
+                                    <!-- submit button-->
+                                    <div class="row mt-5 mb-3">
+                                        <div class="col-md-12">
+                                            <button type="submit" id="confirmButton" class="btn btn-confirm mb-3 ml-3 mr-3">Submit</button>
+                                        </div>
+                                    </div>
                                 </div>
                         <!-- </div> -->
                     <!-- </div> -->
