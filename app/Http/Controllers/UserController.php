@@ -46,7 +46,7 @@ class UserController extends Controller
 
     public function validateUser(Request $request){
 
-        // dd($request->all());
+    
         return  Validator::make($request->all(),[
             'name_of_facility' => 'required_if:user_type,Vaccinator',
             'prc_license_number' => 'required_if:user_type , Vaccinator',
