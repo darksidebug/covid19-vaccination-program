@@ -23,7 +23,7 @@ export async function DisplayRecords(e){
 
     response = await response.json();
 
-    // console.log(response);
+    console.log(response);
 
     AddNode(response, table_name);
 

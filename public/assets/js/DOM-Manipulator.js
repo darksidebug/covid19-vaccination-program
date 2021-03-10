@@ -10,8 +10,9 @@ export async function AddNode(response,table_name){
         // console.log(response);
 
         // dataTable.appendChild(CreateTable(CreateHeader(table_name),CreateBody(response)));
-        maintable.appendChild(CreateButton(table_name))
         dataTable.appendChild(CreateTable(table_name, response))
+        maintable.appendChild(CreateButton(table_name))
+
     }
 }
 
@@ -112,6 +113,7 @@ function CreateTable(table_name, response_data)
 {
     let createTable = document.createElement('table');
     createTable.classList.add("table", "table-hover");
+    createTable.setAttribute('id', 'table-data')
 
     // createTable.innerHTML = table_header.outerHTML + table_body.outerHTML
     // CreateTHEAD(table_name,createTable)
@@ -140,12 +142,14 @@ function CreateButton(table_name)
 
     let date = new Date();
     var filename = date.getFullYear() + "-" + date.getMonth() + "-" + date.getDate() + "-"+ table_name +".csv"
+
     createButton.addEventListener('click', function(e){
         exportTableToCSV(filename)
     })
 
     return createButton
 }
+
 
 function exportTableToCSV(filename) {
     var csv = [];
@@ -154,14 +158,17 @@ function exportTableToCSV(filename) {
     for (var i = 0; i < rows.length; i++) {
         var row = [], cols = rows[i].querySelectorAll("td, th");
 
+
         for (var j = 0; j < cols.length; j++)
+
             row.push(cols[j].innerText);
 
         csv.push(row.join(","));
+
     }
 
     // Download CSV file
-    downloadCSV(csv.join("\n"), filename);
+    downloadCSV(csv.reverse().join("\n"), filename);
 }
 
 function downloadCSV(csv, filename) {

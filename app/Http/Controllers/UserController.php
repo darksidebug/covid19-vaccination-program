@@ -42,15 +42,24 @@ class UserController extends Controller
         ]);
     }
 
+<<<<<<< HEAD
     protected function validateUser(Request $request)
     {
         return Validator::make($request->all(),[
+=======
+    public function registerUser(Request $request){
+
+        $validation = Validator::make($request->all(),[
+            'name_of_facility' => 'required',
+            'prc_license_number' => 'required',
+>>>>>>> ff0ea23728d2fdf34a6e64575fa57c6950a63e4c
             'firstname' => 'required',
             'lastname' => 'required',
             'username' => 'required',
             'user_type' => 'required',
             'password' => 'required',
-            'municipality' => 'required'
+            'municipality' => 'required',
+            'role' => 'required',
         ]);
 
     }
@@ -78,12 +87,15 @@ class UserController extends Controller
         }
 
         User::create([
+            'name_of_facility' => $request->name_of_facility,
+            'prc_license_number' => $request->input('prc_license_number'),
             'firstname' => $request->input('firstname'),
             'lastname' => $request->input('lastname'),
             'username' => $request->input('username'),
             'user_type' => $request-> input('user_type'),
             'password' => Hash::make($request->input('password')),
-            'municipality' => $request->input('municipality')
+            'municipality' => $request->input('municipality'),
+            'role' => $request->input('role')
         ]);
 
         return response()->json(['status' => 'success']);

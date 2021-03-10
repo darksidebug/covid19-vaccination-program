@@ -99,10 +99,22 @@
                                 <option value="Vaccinated">Vaccinated</option>
                             </select>
                         </div>
+
+                        @if (Auth::user()->user_type == 'Admin')
                         <div class="col form-group">
                             <label for="table-municipality" class=""> <small> Municipality </small></label>
                             <select name="table-municipality" class="form-control " id="table-municipality"></select>
                         </div>
+
+                        @else
+                        <input type="hidden" name="table-municipality" value="{{ Auth::user()->municipality }}">
+                        @endif
+
+                        <div class="form-group">
+                                <label for="date_filter">Date</label>
+                                <input type="date" id="date_filter" name="date_filter" class="form-control">
+                        </div>
+
                     </div>
 
                     <div class="form-group align-content-center col-sm-3 mt-sm-4 pt-sm-3">
@@ -137,6 +149,14 @@
 
 
                             <input type="hidden" name="auth_user" value="{{ Auth::id() }}">
+                            <div class="form-group">
+                                <label for="name_of_facility">Name of Facility</label>
+                                <input type="text" name="name_of_facility" id="name_of_facility" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="prc_license_number">PRC License Number</label>
+                                <input type="text" name="prc_license_number" id="prc_license_number" class="form-control">
+                            </div>
                             <div class="form-group row">
                                 <div class="col-sm-6">
                                     <label for="firstname">Firstname</label>
@@ -169,16 +189,26 @@
                                 <select name="user_type" class="form-control" id="user_type">
                                     @if (Auth::user()->user_type == 'Admin')
                                         <option value="Admin">Admin</option>
+                                        <option value="LGU">LGU</option>
                                     @endif
-                                    <option value="LGU">LGU</option>
                                     <option value="Vaccinator">Vaccinator</option>
+                                    <option value="Monitoring">Monitoring</option>
                                 </select>
                             </div>
+                            @if (Auth::user()->user_type == 'Admin')
                             <div class="form-group">
                                 <label for="municipality">Municipality</label>
                                 <select type="text" id="municipality" name="municipality" class="form-control">
                                     <option value=""> </option>
                                 </select>
+                            </div>
+                            @else
+                                <input type="hidden" name="municipality" value="{{ Auth::user()->municipality }}">
+                            @endif
+
+                            <div class="form-group">
+                                <label for="role">Role</label>
+                                <input type="text" id="role" name="role" class="form-control" placeholder="e.g (team_leader, counseling_nurse, encoder)">
                             </div>
 
                             <div class="form-group">

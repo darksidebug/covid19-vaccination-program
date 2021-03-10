@@ -18,6 +18,8 @@ class UserAdminSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
+            'name_of_facility' => 'N/A',
+            'prc_license_number' => 'N/A',
             'firstname' => 'admin',
             'lastname' => 'admin',
             'username' => 'admin',
