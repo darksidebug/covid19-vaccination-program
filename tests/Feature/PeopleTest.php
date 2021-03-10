@@ -48,6 +48,9 @@ class PeopleTest extends TestCase
         ]);
 
         $response->assertJson(['status' => 'success']);
+
+        $this->assertDatabaseHas('statuses', ['status' => '1-1']);
+        $this->assertDatabaseCount('statuses', 1);
     }
 
     public function test_can_people_register_qrcode_that_has_not_unique_qr_code_will_fail()

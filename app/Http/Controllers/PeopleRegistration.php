@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Person;
+use App\Models\Status;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -51,7 +52,12 @@ class PeopleRegistration extends Controller
             return response()->json(['status'=> 'error','errors' => $validation->errors()]);
         }
 
-        Person::create($request->all());
+        $person = Person::create($request->all());
+
+        Status::create([
+            'people_id' => $person->id,
+            'status' => '1-1'
+        ]);
 
         return response()->json(['status' => 'success']);
 
