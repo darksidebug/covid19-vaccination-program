@@ -63,7 +63,7 @@ class Person extends Model
         return $this->hasOne(Status::class,'people_id');
     }
 
-    public function councelledLocations()
+    public function councelled_locations()
     {
         return $this->hasMany(CounselledLocation::class,'person_id','id');
     }
