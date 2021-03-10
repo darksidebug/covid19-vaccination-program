@@ -157,8 +157,21 @@
                                             
                                             <div>
                                                 <p class="ml-3 mt-2 pt-1">If with mentioned condition/s, specify</p>
-                                                <div class="d-flex justify-content-start">
-                                                    <input type="checkbox" class="checkbox"> HIV
+                                                <div class="d-flex justify-content-start ml-3">
+                                                    <input type="checkbox" class="checkbox">
+                                                    <p class="ml-3 mt-2 pt-1">HIV</p>
+                                                </div>
+                                                <div class="d-flex justify-content-start ml-3">
+                                                    <input type="checkbox" class="checkbox">
+                                                    <p class="ml-3 mt-2 pt-1">Cancer/Malignancy</p>
+                                                </div>
+                                                <div class="d-flex justify-content-start ml-3">
+                                                    <input type="checkbox" class="checkbox">
+                                                    <p class="ml-3 mt-2 pt-1">Underwent Transplant</p>
+                                                </div>
+                                                <div class="d-flex justify-content-start ml-3">
+                                                    <input type="checkbox" class="checkbox">
+                                                    <p class="ml-3 mt-2 pt-1">Under Steriod Medication/Treatment</p>
                                                 </div>
                                             </div>
                                             
