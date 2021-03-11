@@ -36,7 +36,7 @@ Route::post('/postdata', function(Request $request){
     ->with('province', $request->get('province'))
     ->with('municipality', $request->get('municipality'))
     ->with('barangay', $request->get('barangay'));
-    
+
     // redirect('/')->with('status','verified');
 
 });
@@ -57,9 +57,10 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::post('/counseling/sheet',[CounselingController::class,'storeSheet']);
     Route::get('/vaccine', [VaccineController::class, 'index']);
-    Route::get('/vaccinator', [VaccinatorController::class, 'index']);
+    Route::get('/vaccinator', [VaccinatorController::class, 'index'])->name('vaccinator_dashboard');
 
     Route::get('vaccinator/{id}', [VaccinatorController::class, 'withId']);
+    Route::post('/vaccinator', [VaccinatorController::class, 'store']);
 });
 
 Route::get('/login', [UserController::class, 'index'])->name('login');

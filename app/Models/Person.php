@@ -67,4 +67,9 @@ class Person extends Model
     {
         return $this->hasMany(CounselledLocation::class,'person_id','id');
     }
+
+    public function vaccinatedinfo()
+    {
+        return $this->hasOne(VaccinatedInfo::class);
+    }
 }

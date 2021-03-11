@@ -5,8 +5,12 @@
         <div class="row justify-content-center">
             <div class="col-sm-6">
                 <div class=" card roundeds shadow">
+
+
+
                     <center><h6>Select Vaccine</h6></center>
-                        <form action="" method="post">
+                        <form action="/vaccinator" method="post">
+                            @csrf
                             <input type="hidden" name="person_id" value="{{ $person->id }}">
                             <div class="form-group">
                                 <label for="batch_number">Batch Number</label>

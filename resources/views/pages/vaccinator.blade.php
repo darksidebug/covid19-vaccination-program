@@ -7,6 +7,16 @@
                 <h5>Vaccination Table</h5>
             </center>
 
+            @if (session('person'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Great!</strong> {{session('person')->fullname()}} was successfully vaccinated
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            @endif
+
+
             <div class="table-responsive">
                 <table class="table table-hover table-bordered">
                     <thead class="text-secondary">
